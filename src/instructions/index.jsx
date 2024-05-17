@@ -56,7 +56,7 @@ const Instructions = ({ children }) => {
   switch (true) {
     case examType === ExamType.PROCTORED && skipProctoring:
       return <SkipProctoredExamInstruction cancelSkipProctoredExam={toggleSkipProctoredExam} />;
-    case isEmpty(attempt) || !attempt.attempt_id:
+    case isEmpty(attempt) || !attempt.attempt_id || examType === ExamType.TIMED:
       return renderEmptyAttemptInstructions();
     case attemptReadyToResume:
       return <EntranceExamInstructions examType={examType} skipProctoredExam={toggleSkipProctoredExam} />;
