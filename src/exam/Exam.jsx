@@ -113,6 +113,9 @@ const Exam = ({
       {isTimeLimited && !originalUserIsStaff && !isGated
         ? <Instructions>{sequenceContent}</Instructions>
         : sequenceContent}
+      {showTimer && (
+        <ExamTimerBlock />
+      )}
     </div>
   );
 };
