@@ -73,7 +73,7 @@ var Instructions = function Instructions(_ref) {
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.SkipProctoredExamInstruction, {
         cancelSkipProctoredExam: toggleSkipProctoredExam
       });
-    case (0, _helpers.isEmpty)(attempt) || !attempt.attempt_id:
+    case (0, _helpers.isEmpty)(attempt) || !attempt.attempt_id || examType === _constants.ExamType.TIMED:
       return renderEmptyAttemptInstructions();
     case attemptReadyToResume:
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_EntranceInstructions["default"], {
@@ -81,9 +81,6 @@ var Instructions = function Instructions(_ref) {
         skipProctoredExam: toggleSkipProctoredExam
       });
     case attemptStatus === _constants.ExamStatus.CREATED:
-      if (examType === _constants.ExamType.TIMED) {
-        return children;
-      }
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.DownloadSoftwareProctoredExamInstructions, {
         skipProctoredExam: toggleSkipProctoredExam
       });

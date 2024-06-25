@@ -130,7 +130,7 @@ var Exam = function Exam(_ref) {
     // show the error message only if you are in the exam sequence
     isTimeLimited && apiErrorMsg && /*#__PURE__*/(0, _jsxRuntime.jsx)(_ExamAPIError["default"], {}), isTimeLimited && !originalUserIsStaff && !isGated ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_instructions["default"], {
       children: sequenceContent
-    }) : sequenceContent]
+    }) : sequenceContent, showTimer && /*#__PURE__*/(0, _jsxRuntime.jsx)(_timer.ExamTimerBlock, {})]
   });
 };
 Exam.propTypes = {
