@@ -101,22 +101,10 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
               }),
               examType: attempt.exam_type
             }
-          }), ' ', isShowMore ? /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
-            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          }), ' ', /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
               id: "exam.examTimer.showLess",
               defaultMessage: 'The timer on the right shows the time remaining in the exam. ' + 'To receive credit for problems, you must select "Submit" ' + 'for each problem before you select "End My Exam" '
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Alert.Link, {
-              onClick: showLess,
-              children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-                id: "exam.examTimer.showLessLink",
-                defaultMessage: "Show less"
-              })
-            })]
-          }) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Alert.Link, {
-            onClick: showMore,
-            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-              id: "exam.examTimer.showMoreLink",
-              defaultMessage: "Show more"
             })
           })]
         }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {

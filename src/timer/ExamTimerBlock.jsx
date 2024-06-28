@@ -79,7 +79,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
               }}
             />
             {' '}
-            {
+            {/* {
               isShowMore
                 ? (
                   <span>
@@ -105,7 +105,15 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
                     />
                   </Alert.Link>
                 )
-            }
+            } */}
+            <span>
+                    <FormattedMessage
+                      id="exam.examTimer.showLess"
+                      defaultMessage={'The timer on the right shows the time remaining in the exam. '
+                        + 'To receive credit for problems, you must select "Submit" '
+                        + 'for each problem before you select "End My Exam" '}
+                    />
+            </span>
           </div>
           <div
             className="d-flex align-items-center flex-shrink-0 ml-lg-3 mt-2 mt-lg-0"

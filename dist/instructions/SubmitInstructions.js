@@ -60,7 +60,7 @@ var SubmitExamInstructions = function SubmitExamInstructions() {
         "data-testid": "continue-exam-button",
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.SubmitExamInstructions.continueButton",
-          defaultMessage: "No, I'd like to continue working"
+          defaultMessage: "Revise my answers"
         })
       })]
     }), examType !== _constants.ExamType.TIMED && /*#__PURE__*/(0, _jsxRuntime.jsx)(_Footer["default"], {})]

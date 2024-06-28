@@ -19,17 +19,7 @@ var SubmitTimedExamInstructions = function SubmitTimedExamInstructions() {
       "data-testid": "exam-instructions-title",
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.submitExamInstructions.title",
-        defaultMessage: "Are you sure that you want to submit your timed exam?"
-      })
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
-      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.submitExamInstructions.warningText",
-        defaultMessage: "Make sure that you have selected \"Submit\" for each problem before you submit your exam."
-      })
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
-      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.submitExamInstructions.text",
-        defaultMessage: "After you submit your exam, your exam will be graded."
+        defaultMessage: "Thank you for taking part in this exam. Would you like to:"
       })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       variant: "primary",
@@ -40,7 +30,7 @@ var SubmitTimedExamInstructions = function SubmitTimedExamInstructions() {
       "data-testid": "end-exam-button",
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.submitExamInstructions.submit",
-        defaultMessage: "Yes, submit my timed exam."
+        defaultMessage: "Proceed to finish the exam"
       })
     })]
   });
