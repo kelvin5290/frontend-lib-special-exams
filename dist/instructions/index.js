@@ -73,7 +73,7 @@ var Instructions = function Instructions(_ref) {
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.SkipProctoredExamInstruction, {
         cancelSkipProctoredExam: toggleSkipProctoredExam
       });
-    case (0, _helpers.isEmpty)(attempt) || !attempt.attempt_id || examType === _constants.ExamType.TIMED:
+    case (0, _helpers.isEmpty)(attempt) || !attempt.attempt_id:
       return renderEmptyAttemptInstructions();
     case attemptReadyToResume:
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_EntranceInstructions["default"], {
