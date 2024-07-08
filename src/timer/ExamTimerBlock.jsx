@@ -68,19 +68,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
           data-testid="exam-timer"
         >
           <div>
-            <FormattedMessage
-              id="exam.examTimer.text"
-              defaultMessage='Exam remaining time: '
-              values={{
-                examLink: (
-                  <Alert.Link href={attempt.exam_url_path}>
-                    {attempt.exam_display_name}
-                  </Alert.Link>
-                ),
-                examType: attempt.exam_type,
-              }}
-            />
-            {' '}
+
             <CountDownTimer attempt={attempt} />
             {/* {
               isShowMore

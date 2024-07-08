@@ -35,32 +35,35 @@ var CountDownTimer = (0, _i18n.injectIntl)(function (props) {
   var generateAccessbilityString = function generateAccessbilityString() {
     var humanizedTime = (0, _helpers.generateHumanizedTime)(timeRemainingSeconds);
     /**
-    * INTL NOTE: At the moment, these strings are NOT internationalized/translated.
-    * The back-end also does not support this either.
-    *
-    * It is TBD if this needs to be implemented
-    */
+     * INTL NOTE: At the moment, these strings are NOT internationalized/translated.
+     * The back-end also does not support this either.
+     *
+     * It is TBD if this needs to be implemented
+     */
     return "you have ".concat(humanizedTime, " remaining");
   };
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
     className: "exam-timer-clock d-flex justify-content-between",
     style: {
-      minWidth: isShowTimer ? '110px' : '32px'
+      minWidth: isShowTimer ? "110px" : "32px"
     },
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+      id: "exam.examTimer.text",
+      defaultMessage: "Exam remaining time: "
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
       className: "sr-only timer-announce",
       "aria-live": "assertive",
       children: generateAccessbilityString()
     }), isShowTimer && timeString, /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
       className: "pl-2 d-flex flex-column justify-content-center",
       id: "toggle_timer",
-      "aria-pressed": isShowTimer ? 'false' : 'true',
+      "aria-pressed": isShowTimer ? "false" : "true",
       "aria-label": isShowTimer ? intl.formatMessage({
-        id: 'exam.aria.hideTimer',
-        defaultMessage: 'Hide Timer'
+        id: "exam.aria.hideTimer",
+        defaultMessage: "Hide Timer"
       }) : intl.formatMessage({
-        id: 'exam.aria.showTimer',
-        defaultMessage: 'Show Timer'
+        id: "exam.aria.showTimer",
+        defaultMessage: "Show Timer"
       })
     })]
   });

@@ -93,20 +93,10 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
       children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         className: "d-flex justify-content-between flex-column flex-lg-row align-items-start",
         "data-testid": "exam-timer",
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-            id: "exam.examTimer.text",
-            defaultMessage: "Exam remaining time: ",
-            values: {
-              examLink: /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Alert.Link, {
-                href: attempt.exam_url_path,
-                children: attempt.exam_display_name
-              }),
-              examType: attempt.exam_type
-            }
-          }), ' ', /*#__PURE__*/(0, _jsxRuntime.jsx)(_CountDownTimer["default"], {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_CountDownTimer["default"], {
             attempt: attempt
-          })]
+          })
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           className: "d-flex align-items-center flex-shrink-0 ml-lg-3 mt-2 mt-lg-0",
           "aria-label": intl.formatMessage({
