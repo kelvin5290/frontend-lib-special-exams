@@ -23,13 +23,13 @@ export const examSlice = createSlice({
       learner_notification_from_email: '',
       integration_specific_email: '',
     },
+    progress:{},
     exam: {
       id: null,
       course_id: '',
       content_id: '',
       external_id: '',
       exam_name: '',
-      progress:{},
       time_limit_mins: null,
       is_proctored: false,
       is_practice_exam: false,
@@ -97,7 +97,7 @@ export const examSlice = createSlice({
       state.exam.reviewPolicy = payload.policy;
     },
     setExamProgress: (state, { payload }) => {
-      state.exam.progress = payload.data;
+      state.progress = payload.data;
     },
     setApiError: (state, { payload }) => {
       state.apiErrorMsg = payload.errorMsg;

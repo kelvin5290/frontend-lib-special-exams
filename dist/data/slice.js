@@ -29,13 +29,13 @@ var examSlice = exports.examSlice = (0, _toolkit.createSlice)({
       learner_notification_from_email: '',
       integration_specific_email: ''
     },
+    progress: {},
     exam: {
       id: null,
       course_id: '',
       content_id: '',
       external_id: '',
       exam_name: '',
-      progress: {},
       time_limit_mins: null,
       is_proctored: false,
       is_practice_exam: false,
@@ -111,7 +111,7 @@ var examSlice = exports.examSlice = (0, _toolkit.createSlice)({
     },
     setExamProgress: function setExamProgress(state, _ref8) {
       var payload = _ref8.payload;
-      state.exam.progress = payload.data;
+      state.progress = payload.data;
     },
     setApiError: function setApiError(state, _ref9) {
       var payload = _ref9.payload;
