@@ -4,7 +4,7 @@ import { FormattedMessage } from "@edx/frontend-platform/i18n";
 import { getLatestAttemptData } from "../data";
 import { Button } from "@openedx/paragon";
 const SubmittedTimedExamInstructions = () => {
-  const { timeIsOver, exam, progress, activeAttempt } = useSelector(
+  const { timeIsOver, exam, progress } = useSelector(
     (state) => state.specialExams
   );
   const { content_id } = exam;
@@ -31,7 +31,10 @@ const SubmittedTimedExamInstructions = () => {
   }, [progress]);
 
   useEffect(() => {
-    if (!isPass) dispatch(getLatestAttemptData(exam.courseId));
+    if (!isPass) {
+      dispatch(getLatestAttemptData(exam.courseId));
+    }
+      
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPass]);
 
@@ -81,7 +84,7 @@ const SubmittedTimedExamInstructions = () => {
             id="exam.submittedExamInstructions.fail"
             defaultMessage="Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
           />
-          {!activeAttempt && (
+          {!exam?.attempt && (
             <Button
               variant="outline-primary"
               onClick={() => window.location.reload()}

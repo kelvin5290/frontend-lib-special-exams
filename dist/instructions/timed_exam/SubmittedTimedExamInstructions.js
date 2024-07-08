@@ -26,8 +26,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     }),
     timeIsOver = _useSelector.timeIsOver,
     exam = _useSelector.exam,
-    progress = _useSelector.progress,
-    activeAttempt = _useSelector.activeAttempt;
+    progress = _useSelector.progress;
   var content_id = exam.content_id;
   var _useState = (0, _react.useState)(5),
     _useState2 = _slicedToArray(_useState, 2),
@@ -73,7 +72,10 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     }
   }, [progress]);
   (0, _react.useEffect)(function () {
-    if (!isPass) dispatch((0, _data.getLatestAttemptData)(exam.courseId));
+    if (!isPass) {
+      dispatch((0, _data.getLatestAttemptData)(exam.courseId));
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPass]);
   (0, _react.useEffect)(function () {
@@ -116,7 +118,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.submittedExamInstructions.fail",
         defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-      }), !activeAttempt && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
+      }), !(exam !== null && exam !== void 0 && exam.attempt) && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
         variant: "outline-primary",
         onClick: function onClick() {
           return window.location.reload();
