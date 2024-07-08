@@ -29,6 +29,7 @@ export const examSlice = createSlice({
       content_id: '',
       external_id: '',
       exam_name: '',
+      progress:{},
       time_limit_mins: null,
       is_proctored: false,
       is_practice_exam: false,
@@ -95,6 +96,9 @@ export const examSlice = createSlice({
     setReviewPolicy: (state, { payload }) => {
       state.exam.reviewPolicy = payload.policy;
     },
+    setExamProgress: (state, { payload }) => {
+      state.exam.progress = payload;
+    },
     setApiError: (state, { payload }) => {
       state.apiErrorMsg = payload.errorMsg;
     },
@@ -104,7 +108,7 @@ export const examSlice = createSlice({
 export const {
   setIsLoading, setExamState, expireExamAttempt,
   setActiveAttempt, setProctoringSettings, setExamAccessToken,
-  setReviewPolicy, setApiError, setAllowProctoringOptOut,
+  setReviewPolicy,setExamProgress, setApiError, setAllowProctoringOptOut,
 } = examSlice.actions;
 
 export default examSlice.reducer;

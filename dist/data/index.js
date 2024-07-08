@@ -51,6 +51,12 @@ Object.defineProperty(exports, "getExamAttemptsData", {
     return _thunks.getExamAttemptsData;
   }
 });
+Object.defineProperty(exports, "getExamProgress", {
+  enumerable: true,
+  get: function get() {
+    return _thunks.getExamProgress;
+  }
+});
 Object.defineProperty(exports, "getExamReviewPolicy", {
   enumerable: true,
   get: function get() {

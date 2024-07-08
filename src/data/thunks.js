@@ -11,6 +11,7 @@ import {
   fetchProctoringSettings,
   softwareDownloadAttempt,
   fetchExamReviewPolicy,
+  fetchExamProgress,
   resetAttempt,
   declineAttempt,
   endExamWithFailure,
@@ -25,6 +26,7 @@ import {
   setProctoringSettings,
   setExamAccessToken,
   setReviewPolicy,
+  setExamProgress,
   setApiError,
   setAllowProctoringOptOut,
 } from './slice';
@@ -519,8 +521,27 @@ export function getExamReviewPolicy() {
       return;
     }
     try {
-      const data = await fetchExamReviewPolicy(exam.id);
+      const data = await fetchExamReviewPolicy(exam.course_id);
       dispatch(setReviewPolicy({ policy: data.review_policy }));
+    } catch (error) {
+      handleAPIError(error, dispatch);
+    }
+  };
+}
+export function getExamProgress() {
+  return async (dispatch, getState) => {
+    const { exam } = getState().specialExams;
+    if (!exam.id) {
+      logError('Failed to fetch exam review policy. No exam id.');
+      handleAPIError(
+        { message: 'Failed to fetch exam review policy. No exam id was found.' },
+        dispatch,
+      );
+      return;
+    }
+    try {
+      const data = await fetchExamProgress(exam.id);
+      dispatch(setExamProgress(data));
     } catch (error) {
       handleAPIError(error, dispatch);
     }

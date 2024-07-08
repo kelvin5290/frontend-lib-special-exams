@@ -61,9 +61,11 @@ const Instructions = ({ children }) => {
     case attemptReadyToResume:
       return <EntranceExamInstructions examType={examType} skipProctoredExam={toggleSkipProctoredExam} />;
     case attemptStatus === ExamStatus.CREATED:
-      return <DownloadSoftwareProctoredExamInstructions skipProctoredExam={toggleSkipProctoredExam} />;
+      return renderEmptyAttemptInstructions();
+      // return <DownloadSoftwareProctoredExamInstructions skipProctoredExam={toggleSkipProctoredExam} />;
     case attemptStatus === ExamStatus.DOWNLOAD_SOFTWARE_CLICKED:
-      return <DownloadSoftwareProctoredExamInstructions />;
+      return renderEmptyAttemptInstructions();
+      // return <DownloadSoftwareProctoredExamInstructions />;
     case attemptStatus === ExamStatus.READY_TO_START:
       return <ReadyToStartProctoredExamInstructions />;
     case attemptStatus === ExamStatus.READY_TO_SUBMIT:

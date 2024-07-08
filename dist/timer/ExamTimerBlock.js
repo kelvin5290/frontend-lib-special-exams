@@ -61,12 +61,14 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
   var handleEndExamClick = function handleEndExamClick() {
     // if timer reached 00:00 submit exam right away
     // instead of trying to move user to ready_to_submit page
-    if (timeReachedNull) {
-      dispatch((0, _data.submitExam)());
-    } else {
-      dispatch((0, _data.stopExam)());
-    }
+    dispatch((0, _data.submitExam)());
+    // if (timeReachedNull) {
+    //   dispatch(submitExam());
+    // } else {
+    //   dispatch(stopExam());
+    // }
   };
+
   (0, _react.useEffect)(function () {
     _data.Emitter.once(_events.TIMER_IS_LOW, onLowTime);
     _data.Emitter.once(_events.TIMER_IS_CRITICALLY_LOW, onCriticalLowTime);
@@ -93,7 +95,7 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
           children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
             id: "exam.examTimer.text",
-            defaultMessage: "You are taking \"{examLink}\" as {examType}.",
+            defaultMessage: "Exam remaining time: ",
             values: {
               examLink: /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Alert.Link, {
                 href: attempt.exam_url_path,
@@ -101,19 +103,16 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
               }),
               examType: attempt.exam_type
             }
-          }), ' ', /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-            children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-              id: "exam.examTimer.showLess",
-              defaultMessage: 'The timer on the right shows the time remaining in the exam. ' + 'To receive credit for problems, you must select "Submit" ' + 'for each problem before you select "End My Exam" '
-            })
+          }), ' ', /*#__PURE__*/(0, _jsxRuntime.jsx)(_CountDownTimer["default"], {
+            attempt: attempt
           })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           className: "d-flex align-items-center flex-shrink-0 ml-lg-3 mt-2 mt-lg-0",
           "aria-label": intl.formatMessage({
             id: 'exam.aria.examTimerAndEndExamButton',
             defaultMessage: 'Exam timer and end exam button'
           }),
-          children: [attempt.attempt_status !== _constants.ExamStatus.READY_TO_SUBMIT && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
+          children: attempt.attempt_status !== _constants.ExamStatus.READY_TO_SUBMIT && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
             "data-testid": "end-button",
             className: "mr-3",
             variant: "outline-primary",
@@ -122,9 +121,7 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
               id: "exam.examTimer.endExamBtn",
               defaultMessage: "End My Exam"
             })
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_CountDownTimer["default"], {
-            attempt: attempt
-          })]
+          })
         })]
       })
     })

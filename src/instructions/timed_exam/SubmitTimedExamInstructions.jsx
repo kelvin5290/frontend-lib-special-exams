@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { FormattedMessage } from '@edx/frontend-platform/i18n';
-import { Button } from '@openedx/paragon';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { FormattedMessage } from "@edx/frontend-platform/i18n";
+import { Button } from "@openedx/paragon";
 
-import { submitExam } from '../../data';
+import { submitExam, getExamProgress } from "../../data";
 
 const SubmitTimedExamInstructions = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,15 @@ const SubmitTimedExamInstructions = () => {
           defaultMessage="Thank you for taking part in this exam. Would you like to:"
         />
       </h3>
-      <Button variant="primary" onClick={() => dispatch(submitExam())} className="mr-2" data-testid="end-exam-button">
+      <Button
+        variant="primary"
+        onClick={() => {
+          dispatch(submitExam());
+          dispatch(getExamProgress());
+        }}
+        className="mr-2"
+        data-testid="end-exam-button"
+      >
         <FormattedMessage
           id="exam.submitExamInstructions.submit"
           defaultMessage="Proceed to finish the exam"

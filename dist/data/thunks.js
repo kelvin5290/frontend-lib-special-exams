@@ -11,6 +11,7 @@ exports.examRequiresAccessToken = examRequiresAccessToken;
 exports.expireExam = expireExam;
 exports.getAllowProctoringOptOut = getAllowProctoringOptOut;
 exports.getExamAttemptsData = getExamAttemptsData;
+exports.getExamProgress = getExamProgress;
 exports.getExamReviewPolicy = getExamReviewPolicy;
 exports.getLatestAttemptData = getLatestAttemptData;
 exports.getProctoringSettings = getProctoringSettings;
@@ -834,7 +835,7 @@ function getExamReviewPolicy() {
           case 5:
             _context18.prev = 5;
             _context18.next = 8;
-            return (0, _api.fetchExamReviewPolicy)(exam.id);
+            return (0, _api.fetchExamReviewPolicy)(exam.course_id);
           case 8:
             data = _context18.sent;
             dispatch((0, _slice.setReviewPolicy)({
@@ -857,6 +858,47 @@ function getExamReviewPolicy() {
     };
   }();
 }
+function getExamProgress() {
+  return /*#__PURE__*/function () {
+    var _ref23 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee19(dispatch, getState) {
+      var exam, data;
+      return _regeneratorRuntime().wrap(function _callee19$(_context19) {
+        while (1) switch (_context19.prev = _context19.next) {
+          case 0:
+            exam = getState().specialExams.exam;
+            if (exam.id) {
+              _context19.next = 5;
+              break;
+            }
+            (0, _logging.logError)('Failed to fetch exam review policy. No exam id.');
+            handleAPIError({
+              message: 'Failed to fetch exam review policy. No exam id was found.'
+            }, dispatch);
+            return _context19.abrupt("return");
+          case 5:
+            _context19.prev = 5;
+            _context19.next = 8;
+            return (0, _api.fetchExamProgress)(exam.id);
+          case 8:
+            data = _context19.sent;
+            dispatch((0, _slice.setExamProgress)(data));
+            _context19.next = 15;
+            break;
+          case 12:
+            _context19.prev = 12;
+            _context19.t0 = _context19["catch"](5);
+            handleAPIError(_context19.t0, dispatch);
+          case 15:
+          case "end":
+            return _context19.stop();
+        }
+      }, _callee19, null, [[5, 12]]);
+    }));
+    return function (_x34, _x35) {
+      return _ref23.apply(this, arguments);
+    };
+  }();
+}
 function getAllowProctoringOptOut(allowProctoringOptOut) {
   return function (dispatch) {
     dispatch((0, _slice.setAllowProctoringOptOut)({
@@ -876,18 +918,18 @@ function getAllowProctoringOptOut(allowProctoringOptOut) {
  */
 function checkExamEntry() {
   return /*#__PURE__*/function () {
-    var _ref23 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee19(dispatch, getState) {
+    var _ref24 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee20(dispatch, getState) {
       var exam, useLegacyAttemptAPI;
-      return _regeneratorRuntime().wrap(function _callee19$(_context19) {
-        while (1) switch (_context19.prev = _context19.next) {
+      return _regeneratorRuntime().wrap(function _callee20$(_context20) {
+        while (1) switch (_context20.prev = _context20.next) {
           case 0:
             exam = getState().specialExams.exam;
             useLegacyAttemptAPI = exam.attempt.use_legacy_attempt_api; // Check only applies to LTI exams
             if (!(!(exam !== null && exam !== void 0 && exam.attempt) || exam.attempt.exam_type !== _constants.ExamType.PROCTORED || exam.attempt.use_legacy_attempt_api)) {
-              _context19.next = 4;
+              _context20.next = 4;
               break;
             }
-            return _context19.abrupt("return");
+            return _context20.abrupt("return");
           case 4:
             if ((0, _constants.IS_PROCTORED_STATUS)(exam.attempt.attempt_status)) {
               Promise.race([(0, _proctorio.checkAppStatus)(), new Promise(function (resolve, reject) {
@@ -903,12 +945,12 @@ function checkExamEntry() {
             }
           case 5:
           case "end":
-            return _context19.stop();
+            return _context20.stop();
         }
-      }, _callee19);
+      }, _callee20);
     }));
-    return function (_x34, _x35) {
-      return _ref23.apply(this, arguments);
+    return function (_x36, _x37) {
+      return _ref24.apply(this, arguments);
     };
   }();
 }

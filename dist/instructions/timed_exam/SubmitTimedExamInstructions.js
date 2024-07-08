@@ -24,7 +24,8 @@ var SubmitTimedExamInstructions = function SubmitTimedExamInstructions() {
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       variant: "primary",
       onClick: function onClick() {
-        return dispatch((0, _data.submitExam)());
+        dispatch((0, _data.submitExam)());
+        dispatch((0, _data.getExamProgress)());
       },
       className: "mr-2",
       "data-testid": "end-exam-button",

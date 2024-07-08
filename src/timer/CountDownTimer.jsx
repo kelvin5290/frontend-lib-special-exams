@@ -47,9 +47,9 @@ const CountDownTimer = injectIntl((props) => {
             defaultMessage: 'Show Timer',
           })}
       >
-        {isShowTimer
+        {/* {isShowTimer
           ? <Icon data-testid="hide-timer" src={VisibilityOff} onClick={hideTimer} />
-          : <Icon data-testid="show-timer" src={Visibility} onClick={showTimer} />}
+          : <Icon data-testid="show-timer" src={Visibility} onClick={showTimer} />} */}
       </span>
     </div>
   );

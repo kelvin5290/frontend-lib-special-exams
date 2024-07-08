@@ -36,11 +36,12 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
   const handleEndExamClick = () => {
     // if timer reached 00:00 submit exam right away
     // instead of trying to move user to ready_to_submit page
-    if (timeReachedNull) {
-      dispatch(submitExam());
-    } else {
-      dispatch(stopExam());
-    }
+    dispatch(submitExam());
+    // if (timeReachedNull) {
+    //   dispatch(submitExam());
+    // } else {
+    //   dispatch(stopExam());
+    // }
   };
 
   useEffect(() => {
@@ -68,7 +69,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
           <div>
             <FormattedMessage
               id="exam.examTimer.text"
-              defaultMessage='You are taking "{examLink}" as {examType}.'
+              defaultMessage='Exam remaining time: '
               values={{
                 examLink: (
                   <Alert.Link href={attempt.exam_url_path}>
@@ -79,6 +80,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
               }}
             />
             {' '}
+            <CountDownTimer attempt={attempt} />
             {/* {
               isShowMore
                 ? (
@@ -106,14 +108,14 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
                   </Alert.Link>
                 )
             } */}
-            <span>
+            {/* <span>
                     <FormattedMessage
                       id="exam.examTimer.showLess"
                       defaultMessage={'The timer on the right shows the time remaining in the exam. '
                         + 'To receive credit for problems, you must select "Submit" '
                         + 'for each problem before you select "End My Exam" '}
                     />
-            </span>
+            </span> */}
           </div>
           <div
             className="d-flex align-items-center flex-shrink-0 ml-lg-3 mt-2 mt-lg-0"
@@ -132,7 +134,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
               </Button>
             )}
 
-            <CountDownTimer attempt={attempt} />
+            
 
           </div>
         </div>

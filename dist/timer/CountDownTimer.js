@@ -61,15 +61,6 @@ var CountDownTimer = (0, _i18n.injectIntl)(function (props) {
       }) : intl.formatMessage({
         id: 'exam.aria.showTimer',
         defaultMessage: 'Show Timer'
-      }),
-      children: isShowTimer ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Icon, {
-        "data-testid": "hide-timer",
-        src: _icons.VisibilityOff,
-        onClick: hideTimer
-      }) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Icon, {
-        "data-testid": "show-timer",
-        src: _icons.Visibility,
-        onClick: showTimer
       })
     })]
   });

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setReviewPolicy = exports.setProctoringSettings = exports.setIsLoading = exports.setExamState = exports.setExamAccessToken = exports.setApiError = exports.setAllowProctoringOptOut = exports.setActiveAttempt = exports.expireExamAttempt = exports.examSlice = exports["default"] = void 0;
+exports.setReviewPolicy = exports.setProctoringSettings = exports.setIsLoading = exports.setExamState = exports.setExamProgress = exports.setExamAccessToken = exports.setApiError = exports.setAllowProctoringOptOut = exports.setActiveAttempt = exports.expireExamAttempt = exports.examSlice = exports["default"] = void 0;
 var _toolkit = require("@reduxjs/toolkit");
 var _helpers = require("../helpers");
 /* eslint-disable no-param-reassign */
@@ -35,6 +35,7 @@ var examSlice = exports.examSlice = (0, _toolkit.createSlice)({
       content_id: '',
       external_id: '',
       exam_name: '',
+      progress: {},
       time_limit_mins: null,
       is_proctored: false,
       is_practice_exam: false,
@@ -108,8 +109,12 @@ var examSlice = exports.examSlice = (0, _toolkit.createSlice)({
       var payload = _ref7.payload;
       state.exam.reviewPolicy = payload.policy;
     },
-    setApiError: function setApiError(state, _ref8) {
+    setExamProgress: function setExamProgress(state, _ref8) {
       var payload = _ref8.payload;
+      state.exam.progress = payload;
+    },
+    setApiError: function setApiError(state, _ref9) {
+      var payload = _ref9.payload;
       state.apiErrorMsg = payload.errorMsg;
     }
   }
@@ -122,6 +127,7 @@ var _examSlice$actions = examSlice.actions,
   setProctoringSettings = exports.setProctoringSettings = _examSlice$actions.setProctoringSettings,
   setExamAccessToken = exports.setExamAccessToken = _examSlice$actions.setExamAccessToken,
   setReviewPolicy = exports.setReviewPolicy = _examSlice$actions.setReviewPolicy,
+  setExamProgress = exports.setExamProgress = _examSlice$actions.setExamProgress,
   setApiError = exports.setApiError = _examSlice$actions.setApiError,
   setAllowProctoringOptOut = exports.setAllowProctoringOptOut = _examSlice$actions.setAllowProctoringOptOut;
 var _default = exports["default"] = examSlice.reducer;

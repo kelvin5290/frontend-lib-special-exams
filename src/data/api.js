@@ -166,6 +166,18 @@ export async function fetchExamReviewPolicy(examId) {
   return data;
 }
 
+export async function fetchExamProgress(courseId, targetUserId) {
+  const url = new URL(
+    `${getConfig().LMS_BASE_URL}/api/course_home/progress/${courseId}`,
+  );
+  if (targetUserId) {
+    url += `/${targetUserId}/`;
+  }
+  const { data } = await getAuthenticatedHttpClient().get(url);
+  
+  return data;
+}
+
 export async function fetchProctoringSettings(courseId, examId) {
   let url;
   if (!getConfig().EXAMS_BASE_URL) {

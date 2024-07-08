@@ -81,11 +81,11 @@ var Instructions = function Instructions(_ref) {
         skipProctoredExam: toggleSkipProctoredExam
       });
     case attemptStatus === _constants.ExamStatus.CREATED:
-      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.DownloadSoftwareProctoredExamInstructions, {
-        skipProctoredExam: toggleSkipProctoredExam
-      });
+      return renderEmptyAttemptInstructions();
+    // return <DownloadSoftwareProctoredExamInstructions skipProctoredExam={toggleSkipProctoredExam} />;
     case attemptStatus === _constants.ExamStatus.DOWNLOAD_SOFTWARE_CLICKED:
-      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.DownloadSoftwareProctoredExamInstructions, {});
+      return renderEmptyAttemptInstructions();
+    // return <DownloadSoftwareProctoredExamInstructions />;
     case attemptStatus === _constants.ExamStatus.READY_TO_START:
       return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.ReadyToStartProctoredExamInstructions, {});
     case attemptStatus === _constants.ExamStatus.READY_TO_SUBMIT:

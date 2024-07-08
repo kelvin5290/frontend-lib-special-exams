@@ -12,6 +12,7 @@ export {
   expireExam,
   pollAttempt,
   getExamReviewPolicy,
+  getExamProgress,
   pingAttempt,
   resetExam,
   getAllowProctoringOptOut,
