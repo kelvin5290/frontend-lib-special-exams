@@ -8,7 +8,7 @@ exports["default"] = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _reactRedux = require("react-redux");
 var _i18n = require("@edx/frontend-platform/i18n");
-var _data = require("../data");
+var _data = require("../../data");
 var _paragon = require("@openedx/paragon");
 var _jsxRuntime = require("react/jsx-runtime");
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
