@@ -5,25 +5,24 @@ import { FormattedMessage } from "@edx/frontend-platform/i18n";
 const SubmittedTimedExamInstructions = () => {
   const { timeIsOver,exam ,progress} = useSelector((state) => state.specialExams);
   const { content_id } = exam;
-  
-  let isPass = false;
+  const [timeLeft, setTimeLeft] = useState(10);
+  const [isPass, setIspass] = useState(false);
   console.log(progress);
   console.log(exam);
-  if (progress?.section_scores){
-    for (const section of progress?.section_scores) {
-      for (const subsection of section.subsections) {
-        if (subsection.block_key === targetBlockKey) {
-          isPass =
-            subsection.percent_graded >
-            (progress?.grading_policy?.grade_range?.pass || 0.7);
-          console.log("isPass", isPass);
-          break;
+  useEffect(() => {
+    if (progress?.section_scores){
+      for (const section of progress?.section_scores) {
+        for (const subsection of section.subsections) {
+          if (subsection.block_key === exam.content_id) {
+            
+            setIspass(subsection.percent_graded >
+              (progress?.grading_policy?.grade_range?.pass || 0.7))
+            console.log("isPass", isPass);
+            break;
+          }
         }
-      }
-    }
-  }
- 
-  const [timeLeft, setTimeLeft] = useState(10);
+      }}
+  }, [progress]);
 
   useEffect(() => {
     if (timeLeft === 0) {
