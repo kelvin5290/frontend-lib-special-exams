@@ -8,18 +8,21 @@ const SubmittedTimedExamInstructions = () => {
   const { progress, content_id } = exam;
   let isPass = false;
   console.log(progress);
-  console.log(content_id);
-  for (const section of progress?.section_scores) {
-    for (const subsection of section.subsections) {
-      if (subsection.block_key === targetBlockKey) {
-        isPass =
-          subsection.percent_graded >
-          (progress?.grading_policy?.grade_range?.pass || 0.7);
-        console.log("isPass", isPass);
-        break;
+  console.log(exam);
+  if (progress?.section_scores){
+    for (const section of progress?.section_scores) {
+      for (const subsection of section.subsections) {
+        if (subsection.block_key === targetBlockKey) {
+          isPass =
+            subsection.percent_graded >
+            (progress?.grading_policy?.grade_range?.pass || 0.7);
+          console.log("isPass", isPass);
+          break;
+        }
       }
     }
   }
+ 
   const [timeLeft, setTimeLeft] = useState(10);
 
   useEffect(() => {

@@ -111,7 +111,7 @@ var examSlice = exports.examSlice = (0, _toolkit.createSlice)({
     },
     setExamProgress: function setExamProgress(state, _ref8) {
       var payload = _ref8.payload;
-      state.exam.progress = payload;
+      state.exam.progress = payload.data;
     },
     setApiError: function setApiError(state, _ref9) {
       var payload = _ref9.payload;

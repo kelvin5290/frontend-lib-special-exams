@@ -97,7 +97,7 @@ export const examSlice = createSlice({
       state.exam.reviewPolicy = payload.policy;
     },
     setExamProgress: (state, { payload }) => {
-      state.exam.progress = payload;
+      state.exam.progress = payload.data;
     },
     setApiError: (state, { payload }) => {
       state.apiErrorMsg = payload.errorMsg;

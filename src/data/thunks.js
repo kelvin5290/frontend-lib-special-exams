@@ -541,7 +541,7 @@ export function getExamProgress() {
     }
     try {
       const data = await fetchExamProgress(exam.course_id);
-      dispatch(setExamProgress(data));
+      dispatch(setExamProgress({ data: data }));
     } catch (error) {
       handleAPIError(error, dispatch);
     }

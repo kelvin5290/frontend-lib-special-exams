@@ -881,7 +881,9 @@ function getExamProgress() {
             return (0, _api.fetchExamProgress)(exam.course_id);
           case 8:
             data = _context19.sent;
-            dispatch((0, _slice.setExamProgress)(data));
+            dispatch((0, _slice.setExamProgress)({
+              data: data
+            }));
             _context19.next = 15;
             break;
           case 12:
