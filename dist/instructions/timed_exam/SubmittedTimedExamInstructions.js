@@ -72,16 +72,12 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     }
   }, [progress]);
   (0, _react.useEffect)(function () {
-    if (!isPass) {
-      dispatch((0, _data.getLatestAttemptData)(exam.courseId));
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPass]);
-  (0, _react.useEffect)(function () {
     if (timeLeft === 0) {
       // Countdown has reached zero, do something
       console.log("Countdown finished!");
+      if (!isPass) {
+        dispatch((0, _data.getLatestAttemptData)(exam.courseId));
+      }
       return;
     }
     var timer = setTimeout(function () {

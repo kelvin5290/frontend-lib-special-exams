@@ -30,18 +30,14 @@ const SubmittedTimedExamInstructions = () => {
     }
   }, [progress]);
 
-  useEffect(() => {
-    if (!isPass) {
-      dispatch(getLatestAttemptData(exam.courseId));
-    }
-      
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPass]);
 
   useEffect(() => {
     if (timeLeft === 0) {
       // Countdown has reached zero, do something
       console.log("Countdown finished!");
+      if (!isPass) {
+        dispatch(getLatestAttemptData(exam.courseId));
+      }
       return;
     }
 
