@@ -22,13 +22,10 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   var _useSelector = (0, _reactRedux.useSelector)(function (state) {
       return state.specialExams;
     }),
-    timeIsOver = _useSelector.timeIsOver;
-  var _useSelector2 = (0, _reactRedux.useSelector)(function (state) {
-      return state.specialExams;
-    }),
-    exam = _useSelector2.exam;
-  var progress = exam.progress,
-    content_id = exam.content_id;
+    timeIsOver = _useSelector.timeIsOver,
+    exam = _useSelector.exam,
+    progress = _useSelector.progress;
+  var content_id = exam.content_id;
   var isPass = false;
   console.log(progress);
   console.log(exam);

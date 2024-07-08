@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { FormattedMessage } from "@edx/frontend-platform/i18n";
 
 const SubmittedTimedExamInstructions = () => {
-  const { timeIsOver } = useSelector((state) => state.specialExams);
-  const { exam } = useSelector((state) => state.specialExams);
-  const { progress, content_id } = exam;
+  const { timeIsOver,exam ,progress} = useSelector((state) => state.specialExams);
+  const { content_id } = exam;
+  
   let isPass = false;
   console.log(progress);
   console.log(exam);
