@@ -61,6 +61,7 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
   var handleEndExamClick = function handleEndExamClick() {
     // if timer reached 00:00 submit exam right away
     // instead of trying to move user to ready_to_submit page
+    dispatch((0, _data.getExamProgress)());
     dispatch((0, _data.submitExam)());
     // if (timeReachedNull) {
     //   dispatch(submitExam());

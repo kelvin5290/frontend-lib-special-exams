@@ -6,7 +6,7 @@ import CountDownTimer from './CountDownTimer';
 import { ExamStatus, IS_STARTED_STATUS } from '../constants';
 import TimerProvider from './TimerProvider';
 import {
-  Emitter, expireExam, stopExam, submitExam,
+  Emitter, expireExam, stopExam, submitExam,getExamProgress
 } from '../data';
 import {
   TIMER_IS_CRITICALLY_LOW,
@@ -36,6 +36,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
   const handleEndExamClick = () => {
     // if timer reached 00:00 submit exam right away
     // instead of trying to move user to ready_to_submit page
+    dispatch(getExamProgress());
     dispatch(submitExam());
     // if (timeReachedNull) {
     //   dispatch(submitExam());
