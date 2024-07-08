@@ -835,7 +835,7 @@ function getExamReviewPolicy() {
           case 5:
             _context18.prev = 5;
             _context18.next = 8;
-            return (0, _api.fetchExamReviewPolicy)(exam.course_id);
+            return (0, _api.fetchExamReviewPolicy)(exam.id);
           case 8:
             data = _context18.sent;
             dispatch((0, _slice.setReviewPolicy)({
@@ -878,7 +878,7 @@ function getExamProgress() {
           case 5:
             _context19.prev = 5;
             _context19.next = 8;
-            return (0, _api.fetchExamProgress)(exam.id);
+            return (0, _api.fetchExamProgress)(exam.course_id);
           case 8:
             data = _context19.sent;
             dispatch((0, _slice.setExamProgress)(data));

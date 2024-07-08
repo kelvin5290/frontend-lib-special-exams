@@ -521,7 +521,7 @@ export function getExamReviewPolicy() {
       return;
     }
     try {
-      const data = await fetchExamReviewPolicy(exam.course_id);
+      const data = await fetchExamReviewPolicy(exam.id);
       dispatch(setReviewPolicy({ policy: data.review_policy }));
     } catch (error) {
       handleAPIError(error, dispatch);
@@ -540,7 +540,7 @@ export function getExamProgress() {
       return;
     }
     try {
-      const data = await fetchExamProgress(exam.id);
+      const data = await fetchExamProgress(exam.course_id);
       dispatch(setExamProgress(data));
     } catch (error) {
       handleAPIError(error, dispatch);

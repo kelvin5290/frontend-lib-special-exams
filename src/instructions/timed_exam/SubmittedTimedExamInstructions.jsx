@@ -9,7 +9,7 @@ const SubmittedTimedExamInstructions = () => {
   let isPass = false;
   console.log(progress);
   console.log(content_id);
-  for (const section of progress.section_scores) {
+  for (const section of progress?.section_scores) {
     for (const subsection of section.subsections) {
       if (subsection.block_key === targetBlockKey) {
         isPass =

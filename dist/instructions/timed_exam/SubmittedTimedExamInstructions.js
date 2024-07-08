@@ -30,7 +30,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   var isPass = false;
   console.log(progress);
   console.log(content_id);
-  var _iterator = _createForOfIteratorHelper(progress.section_scores),
+  var _iterator = _createForOfIteratorHelper(progress === null || progress === void 0 ? void 0 : progress.section_scores),
     _step;
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
