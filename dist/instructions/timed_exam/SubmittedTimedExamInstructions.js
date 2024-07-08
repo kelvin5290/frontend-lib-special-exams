@@ -26,14 +26,10 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     exam = _useSelector.exam,
     progress = _useSelector.progress;
   var content_id = exam.content_id;
-  var _useState = (0, _react.useState)(10),
+  var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    timeLeft = _useState2[0],
-    setTimeLeft = _useState2[1];
-  var _useState3 = (0, _react.useState)(false),
-    _useState4 = _slicedToArray(_useState3, 2),
-    isPass = _useState4[0],
-    setIspass = _useState4[1];
+    isPass = _useState2[0],
+    setIspass = _useState2[1];
   console.log(progress);
   console.log(exam);
   (0, _react.useEffect)(function () {
@@ -68,45 +64,27 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       }
     }
   }, [progress]);
-  (0, _react.useEffect)(function () {
-    if (timeLeft === 0) {
-      // Countdown has reached zero, do something
-      console.log("Countdown finished!");
-      return;
-    }
-    var timer = setTimeout(function () {
-      setTimeLeft(timeLeft - 1);
-    }, 1000);
-    return function () {
-      clearTimeout(timer);
-    };
-  }, [timeLeft]);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
     className: "h3",
     "data-testid": "exam.submittedExamInstructions.title",
-    children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.submittedExamInstructions.title",
-        defaultMessage: "Your final score is calculating, please wait for your result and do not close this page."
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-        "class": "progress",
-        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-          style: {
-            width: "".concat((10 - timeLeft) * 10, "%")
-          },
-          "class": "progress-bar",
-          role: "progressbar",
-          "aria-valuenow": (10 - timeLeft) * 10,
-          "aria-valuemin": "0",
-          "aria-valuemax": "100"
-        })
-      })]
-    }) : isPass ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+    children: progress ? isPass ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
       id: "exam.submittedExamInstructions.pass",
       defaultMessage: "Congratulations! You've passed the exam."
     }) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
       id: "exam.submittedExamInstructions.fail",
       defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
+    }) : /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+        id: "exam.submittedExamInstructions.title",
+        defaultMessage: "Your final score is calculating, please wait for your result and do not close this page."
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        "class": "spinner-border",
+        role: "status",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+          "class": "sr-only",
+          children: "Loading..."
+        })
+      })]
     })
   });
 };
