@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { FormattedMessage } from "@edx/frontend-platform/i18n";
 import { getExamAttemptsData } from "../../data";
 import { Button } from "@openedx/paragon";
-import {
-  fetchLatestAttempt,
-} from '../../api';
+import 
+  {fetchLatestAttempt}
+ from '../../data/api';
 const SubmittedTimedExamInstructions = () => {
   const { timeIsOver, exam, progress } = useSelector(
     (state) => state.specialExams
