@@ -73,7 +73,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
         }
       }
       if (!isPass) {
-        dispatch((0, _data.getExamAttemptsData)(exam.courseId, exam.content_id));
+        dispatch((0, _data.getExamAttemptsData)(exam.course_id, exam.content_id));
       }
       return;
     }

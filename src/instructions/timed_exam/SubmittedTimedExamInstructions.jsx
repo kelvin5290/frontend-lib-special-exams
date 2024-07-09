@@ -34,7 +34,7 @@ const SubmittedTimedExamInstructions = () => {
         }
       }
       if (!isPass) {
-        dispatch(getExamAttemptsData(exam.courseId, exam.content_id));
+        dispatch(getExamAttemptsData(exam.course_id, exam.content_id));
       }
       return;
     }
