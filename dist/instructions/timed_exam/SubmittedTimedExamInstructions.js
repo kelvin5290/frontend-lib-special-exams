@@ -149,45 +149,46 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       }
     }, _callee, null, [[4, 31, 34, 37], [9, 21, 24, 27]]);
   })), [timeLeft]);
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
-    className: "h3",
-    "data-testid": "exam.submittedExamInstructions.title",
-    children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.submittedExamInstructions.title",
-        defaultMessage: "Your final score is calculating, please wait for your result and do not close this page."
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-        "class": "progress",
-        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-          style: {
-            width: "".concat((5 - timeLeft) * 20, "%")
-          },
-          "class": "progress-bar",
-          role: "progressbar",
-          "aria-valuenow": (5 - timeLeft) * 20,
-          "aria-valuemin": "0",
-          "aria-valuemax": "100"
-        })
-      })]
-    }) : isPass ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-      id: "exam.submittedExamInstructions.pass",
-      defaultMessage: "Congratulations! You've passed the exam."
-    }) : /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
+      className: "h3",
+      "data-testid": "exam.submittedExamInstructions.title",
+      children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          id: "exam.submittedExamInstructions.title",
+          defaultMessage: "Your final score is calculating, please wait for your result and do not close this page."
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          "class": "progress",
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+            style: {
+              width: "".concat((5 - timeLeft) * 20, "%")
+            },
+            "class": "progress-bar",
+            role: "progressbar",
+            "aria-valuenow": (5 - timeLeft) * 20,
+            "aria-valuemin": "0",
+            "aria-valuemax": "100"
+          })
+        })]
+      }) : isPass ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+        id: "exam.submittedExamInstructions.pass",
+        defaultMessage: "Congratulations! You've passed the exam."
+      }) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.submittedExamInstructions.fail",
         defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-      }), !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
-        variant: "outline-primary",
-        onClick: function onClick() {
-          return window.location.reload();
-        },
-        "data-testid": "continue-exam-button",
-        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-          id: "exam.submittedExamInstructions.retake",
-          defaultMessage: "Retake Exam"
-        })
-      })]
-    })
+      })
+    }), !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
+      variant: "outline-primary",
+      "class": "mt-3",
+      onClick: function onClick() {
+        return window.location.reload();
+      },
+      "data-testid": "continue-exam-button",
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+        id: "exam.submittedExamInstructions.retake",
+        defaultMessage: "Retake Exam"
+      })
+    })]
   });
 };
 var _default = exports["default"] = SubmittedTimedExamInstructions;

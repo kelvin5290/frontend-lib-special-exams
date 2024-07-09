@@ -61,6 +61,7 @@ const SubmittedTimedExamInstructions = () => {
   }, [timeLeft]);
 
   return (
+    <>
     <h3 className="h3" data-testid="exam.submittedExamInstructions.title">
       {timeLeft > 0 ? (
         <>
@@ -85,26 +86,29 @@ const SubmittedTimedExamInstructions = () => {
           defaultMessage="Congratulations! You've passed the exam."
         />
       ) : (
-        <>
+      
           <FormattedMessage
             id="exam.submittedExamInstructions.fail"
             defaultMessage="Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
           />
-          {!hidebtn && (
-            <Button
-              variant="outline-primary"
-              onClick={() => window.location.reload()}
-              data-testid="continue-exam-button"
-            >
-              <FormattedMessage
-                id="exam.submittedExamInstructions.retake"
-                defaultMessage="Retake Exam"
-              />
-            </Button>
-          )}
-        </>
+
+
       )}
     </h3>
+    {!hidebtn && 
+      <Button
+        variant="outline-primary"
+        class="mt-3"
+        onClick={() => window.location.reload()}
+        data-testid="continue-exam-button"
+      >
+        <FormattedMessage
+          id="exam.submittedExamInstructions.retake"
+          defaultMessage="Retake Exam"
+        />
+      </Button>
+    }
+    </>
   );
 };
 
