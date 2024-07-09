@@ -53,7 +53,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     }
   }, []);
   (0, _react.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var _iterator, _step, section, _iterator2, _step2, subsection, _progress$grading_pol, attempt, _timer;
+    var _iterator, _step, section, _iterator2, _step2, subsection, _progress$grading_pol, _progress$grading_pol2, attempt, _timer;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
@@ -89,8 +89,8 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
             _context.next = 17;
             break;
           }
-          setIspass(subsection.percent_graded > ((progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.pass) || 0.7));
-          console.log("isPass", isPass);
+          setIspass(subsection.percent_graded > (progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.pass));
+          console.log("isPass", isPass, progress === null || progress === void 0 || (_progress$grading_pol2 = progress.grading_policy) === null || _progress$grading_pol2 === void 0 || (_progress$grading_pol2 = _progress$grading_pol2.grade_range) === null || _progress$grading_pol2 === void 0 ? void 0 : _progress$grading_pol2.pass);
           return _context.abrupt("break", 19);
         case 17:
           _context.next = 11;
