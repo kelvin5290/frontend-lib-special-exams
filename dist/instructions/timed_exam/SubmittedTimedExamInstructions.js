@@ -89,8 +89,8 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
             _context.next = 17;
             break;
           }
-          setIspass(subsection.percent_graded > (progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.pass));
-          console.log("isPass", isPass, progress === null || progress === void 0 || (_progress$grading_pol2 = progress.grading_policy) === null || _progress$grading_pol2 === void 0 || (_progress$grading_pol2 = _progress$grading_pol2.grade_range) === null || _progress$grading_pol2 === void 0 ? void 0 : _progress$grading_pol2.pass);
+          setIspass(subsection.percent_graded > (progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.Pass));
+          console.log("isPass", isPass, progress === null || progress === void 0 || (_progress$grading_pol2 = progress.grading_policy) === null || _progress$grading_pol2 === void 0 || (_progress$grading_pol2 = _progress$grading_pol2.grade_range) === null || _progress$grading_pol2 === void 0 ? void 0 : _progress$grading_pol2.Pass);
           return _context.abrupt("break", 19);
         case 17:
           _context.next = 11;
