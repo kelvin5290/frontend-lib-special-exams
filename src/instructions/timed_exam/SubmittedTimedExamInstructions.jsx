@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FormattedMessage } from "@edx/frontend-platform/i18n";
-import { getLatestAttemptData } from "../../data";
+import { getExamAttemptsData } from "../../data";
 import { Button } from "@openedx/paragon";
 const SubmittedTimedExamInstructions = () => {
   const { timeIsOver, exam, progress } = useSelector(
