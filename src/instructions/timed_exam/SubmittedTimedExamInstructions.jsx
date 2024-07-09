@@ -34,9 +34,9 @@ const SubmittedTimedExamInstructions = () => {
             if (subsection.block_key === exam.content_id) {
               setIspass(
                 subsection.percent_graded >
-                  (progress?.grading_policy?.grade_range?.pass)
+                  (progress?.grading_policy?.grade_range?.Pass)
               );
-              console.log("isPass", isPass,progress?.grading_policy?.grade_range?.pass);
+              console.log("isPass", isPass,progress?.grading_policy?.grade_range?.Pass);
               break;
             }
           }
