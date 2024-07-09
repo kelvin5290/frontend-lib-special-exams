@@ -43,7 +43,7 @@ const SubmittedTimedExamInstructions = () => {
       }
       if (!isPass) {
        let attempt =  await fetchLatestAttempt(exam.course_id);
-       if (Object.keys(attempt).length === 0){
+       if (Object.keys(attempt.active_attempt).length === 0){
         setHidebtn(false)
        }
        console.log(attempt,hidebtn)

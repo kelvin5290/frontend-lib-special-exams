@@ -128,7 +128,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           return (0, _api.fetchLatestAttempt)(exam.course_id);
         case 40:
           attempt = _context.sent;
-          if (Object.keys(attempt).length === 0) {
+          if (Object.keys(attempt.active_attempt).length === 0) {
             setHidebtn(false);
           }
           console.log(attempt, hidebtn);
