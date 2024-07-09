@@ -27,7 +27,6 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     timeIsOver = _useSelector.timeIsOver,
     exam = _useSelector.exam,
     progress = _useSelector.progress;
-  var content_id = exam.content_id;
   var _useState = (0, _react.useState)(5),
     _useState2 = _slicedToArray(_useState, 2),
     timeLeft = _useState2[0],
@@ -40,43 +39,41 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   console.log(progress);
   console.log(exam);
   (0, _react.useEffect)(function () {
-    if (progress !== null && progress !== void 0 && progress.section_scores) {
-      var _iterator = _createForOfIteratorHelper(progress === null || progress === void 0 ? void 0 : progress.section_scores),
-        _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var section = _step.value;
-          var _iterator2 = _createForOfIteratorHelper(section.subsections),
-            _step2;
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var subsection = _step2.value;
-              if (subsection.block_key === exam.content_id) {
-                var _progress$grading_pol;
-                setIspass(subsection.percent_graded > ((progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.pass) || 0.7));
-                console.log("isPass", isPass);
-                break;
-              }
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-    }
-  }, [progress]);
-  (0, _react.useEffect)(function () {
     if (timeLeft === 0) {
       // Countdown has reached zero, do something
       console.log("Countdown finished!");
+      if (progress !== null && progress !== void 0 && progress.section_scores) {
+        var _iterator = _createForOfIteratorHelper(progress === null || progress === void 0 ? void 0 : progress.section_scores),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var section = _step.value;
+            var _iterator2 = _createForOfIteratorHelper(section.subsections),
+              _step2;
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                var subsection = _step2.value;
+                if (subsection.block_key === exam.content_id) {
+                  var _progress$grading_pol;
+                  setIspass(subsection.percent_graded > ((progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.pass) || 0.7));
+                  console.log("isPass", isPass);
+                  break;
+                }
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      }
       if (!isPass) {
-        dispatch((0, _data.getLatestAttemptData)(exam.courseId));
+        dispatch(getExamAttemptsData(exam.courseId, exam.content_id));
       }
       return;
     }

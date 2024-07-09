@@ -7,36 +7,34 @@ const SubmittedTimedExamInstructions = () => {
   const { timeIsOver, exam, progress } = useSelector(
     (state) => state.specialExams
   );
-  const { content_id } = exam;
   const [timeLeft, setTimeLeft] = useState(5);
   const [isPass, setIspass] = useState(false);
   const dispatch = useDispatch();
   console.log(progress);
   console.log(exam);
-  useEffect(() => {
-    if (progress?.section_scores) {
-      for (const section of progress?.section_scores) {
-        for (const subsection of section.subsections) {
-          if (subsection.block_key === exam.content_id) {
-            setIspass(
-              subsection.percent_graded >
-                (progress?.grading_policy?.grade_range?.pass || 0.7)
-            );
-            console.log("isPass", isPass);
-            break;
-          }
-        }
-      }
-    }
-  }, [progress]);
+
 
 
   useEffect(() => {
     if (timeLeft === 0) {
       // Countdown has reached zero, do something
       console.log("Countdown finished!");
+      if (progress?.section_scores) {
+        for (const section of progress?.section_scores) {
+          for (const subsection of section.subsections) {
+            if (subsection.block_key === exam.content_id) {
+              setIspass(
+                subsection.percent_graded >
+                  (progress?.grading_policy?.grade_range?.pass || 0.7)
+              );
+              console.log("isPass", isPass);
+              break;
+            }
+          }
+        }
+      }
       if (!isPass) {
-        dispatch(getLatestAttemptData(exam.courseId));
+        dispatch(getExamAttemptsData(exam.courseId, exam.content_id));
       }
       return;
     }
