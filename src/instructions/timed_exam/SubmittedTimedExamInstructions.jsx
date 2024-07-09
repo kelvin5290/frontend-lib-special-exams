@@ -18,7 +18,7 @@ const SubmittedTimedExamInstructions = () => {
   console.log(exam);
 
   useEffect(()=>{
-    if (typeof attempt === 'object' && attempt !== null){
+    if (attempt !== 'object' && attempt === true){
       setTimeLeft(5)
     }
   },[])
