@@ -10,14 +10,18 @@ const SubmittedTimedExamInstructions = () => {
   const { timeIsOver, exam, progress } = useSelector(
     (state) => state.specialExams
   );
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(null);
   const [isPass, setIspass] = useState(false);
   const [attempt, setAttempt]= useState(true);
   const dispatch = useDispatch();
   console.log(progress);
   console.log(exam);
 
-
+  useEffect(()=>{
+    if (typeof attempt === 'object' && attempt !== null){
+      setTimeLeft(5)
+    }
+  },[])
 
   useEffect(async () => {
     if (timeLeft === 0) {
@@ -44,11 +48,11 @@ const SubmittedTimedExamInstructions = () => {
       }
       return;
     }
-
+    if (timeLeft > 0) {
     const timer = setTimeout(() => {
       setTimeLeft(timeLeft - 1);
     }, 1000);
-
+    }
     return () => {
       clearTimeout(timer);
     };
