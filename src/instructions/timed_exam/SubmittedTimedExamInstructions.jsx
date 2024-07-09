@@ -19,7 +19,7 @@ const SubmittedTimedExamInstructions = () => {
 
   useEffect(()=>{
     if (hidebtn === true){
-      setTimeLeft(5)
+      setTimeLeft(7)
       dispatch(getExamProgress());
     }
   },[])
@@ -72,10 +72,10 @@ const SubmittedTimedExamInstructions = () => {
           />
           <div class="progress">
             <div
-              style={{ width: `${(5 - timeLeft) * 20}%` }}
+              style={{ width: `${(7 - timeLeft) * 15}%` }}
               class="progress-bar"
               role="progressbar"
-              aria-valuenow={(5 - timeLeft) * 20}
+              aria-valuenow={(7 - timeLeft) * 15}
               aria-valuemin="0"
               aria-valuemax="100"
             ></div>

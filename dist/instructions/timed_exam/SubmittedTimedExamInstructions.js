@@ -48,7 +48,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   console.log(exam);
   (0, _react.useEffect)(function () {
     if (hidebtn === true) {
-      setTimeLeft(5);
+      setTimeLeft(7);
       dispatch((0, _data.getExamProgress)());
     }
   }, []);
@@ -161,11 +161,11 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           "class": "progress",
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
             style: {
-              width: "".concat((5 - timeLeft) * 20, "%")
+              width: "".concat((7 - timeLeft) * 15, "%")
             },
             "class": "progress-bar",
             role: "progressbar",
-            "aria-valuenow": (5 - timeLeft) * 20,
+            "aria-valuenow": (7 - timeLeft) * 15,
             "aria-valuemin": "0",
             "aria-valuemax": "100"
           })
