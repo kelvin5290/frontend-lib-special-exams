@@ -49,6 +49,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   (0, _react.useEffect)(function () {
     if (hidebtn === true) {
       setTimeLeft(5);
+      dispatch((0, _data.getExamProgress)());
     }
   }, []);
   (0, _react.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -125,10 +126,10 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
             break;
           }
           _context.next = 40;
-          return (0, _api.fetchLatestAttempt)(exam.course_id);
+          return (0, _api.fetchExamAttemptsData)(exam.course_id, exam.content_id);
         case 40:
           attempt = _context.sent;
-          if (Object.keys(attempt.active_attempt).length === 0) {
+          if (Object.keys(attempt.exam.attempt).length === 0) {
             setHidebtn(false);
           }
           console.log(attempt, hidebtn);
@@ -150,8 +151,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     }, _callee, null, [[4, 31, 34, 37], [9, 21, 24, 27]]);
   })), [timeLeft]);
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
-      className: "h3",
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h4", {
       "data-testid": "exam.submittedExamInstructions.title",
       children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
@@ -177,7 +177,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
         id: "exam.submittedExamInstructions.fail",
         defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
       })
-    }), !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
+    }), !isPass && !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       variant: "outline-primary",
       "class": "mt-3",
       onClick: function onClick() {

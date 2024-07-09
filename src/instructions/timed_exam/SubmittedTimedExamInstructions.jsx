@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FormattedMessage } from "@edx/frontend-platform/i18n";
-import { getExamAttemptsData } from "../../data";
+import { getExamProgress } from "../../data";
 import { Button } from "@openedx/paragon";
 import 
-  {fetchLatestAttempt}
+  {fetchExamAttemptsData}
  from '../../data/api';
 const SubmittedTimedExamInstructions = () => {
   const { timeIsOver, exam, progress } = useSelector(
@@ -20,6 +20,7 @@ const SubmittedTimedExamInstructions = () => {
   useEffect(()=>{
     if (hidebtn === true){
       setTimeLeft(5)
+      dispatch(getExamProgress());
     }
   },[])
 
@@ -42,8 +43,8 @@ const SubmittedTimedExamInstructions = () => {
         }
       }
       if (!isPass) {
-       let attempt =  await fetchLatestAttempt(exam.course_id);
-       if (Object.keys(attempt.active_attempt).length === 0){
+       let attempt =  await fetchExamAttemptsData(exam.course_id,exam.content_id);
+       if (Object.keys(attempt.exam.attempt).length === 0){
         setHidebtn(false)
        }
        console.log(attempt,hidebtn)
@@ -62,7 +63,7 @@ const SubmittedTimedExamInstructions = () => {
 
   return (
     <>
-    <h3 className="h3" data-testid="exam.submittedExamInstructions.title">
+    <h4 data-testid="exam.submittedExamInstructions.title">
       {timeLeft > 0 ? (
         <>
           <FormattedMessage
@@ -94,8 +95,8 @@ const SubmittedTimedExamInstructions = () => {
 
 
       )}
-    </h3>
-    {!hidebtn && 
+    </h4>
+    {!isPass && !hidebtn && 
       <Button
         variant="outline-primary"
         class="mt-3"
