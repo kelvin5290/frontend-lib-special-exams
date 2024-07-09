@@ -41,23 +41,23 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     setIspass = _useState4[1];
   var _useState5 = (0, _react.useState)(true),
     _useState6 = _slicedToArray(_useState5, 2),
-    attempt = _useState6[0],
-    setAttempt = _useState6[1];
+    hidebtn = _useState6[0],
+    setHidebtn = _useState6[1];
   var dispatch = (0, _reactRedux.useDispatch)();
   console.log(progress);
   console.log(exam);
   (0, _react.useEffect)(function () {
-    if (attempt !== 'object' && attempt === true) {
+    if (hidebtn === true) {
       setTimeLeft(5);
     }
   }, []);
   (0, _react.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var _iterator, _step, section, _iterator2, _step2, subsection, _progress$grading_pol, _attempt, _timer;
+    var _iterator, _step, section, _iterator2, _step2, subsection, _progress$grading_pol, attempt, _timer;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           if (!(timeLeft === 0)) {
-            _context.next = 43;
+            _context.next = 44;
             break;
           }
           // Countdown has reached zero, do something
@@ -121,17 +121,20 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           return _context.finish(34);
         case 37:
           if (isPass) {
-            _context.next = 42;
+            _context.next = 43;
             break;
           }
           _context.next = 40;
           return (0, _api.fetchLatestAttempt)(exam.course_id);
         case 40:
-          _attempt = _context.sent;
-          setAttempt(_attempt);
-        case 42:
-          return _context.abrupt("return");
+          attempt = _context.sent;
+          if (Object.keys(attempt).length === 0) {
+            setHidebtn(false);
+          }
+          console.log(attempt, hidebtn);
         case 43:
+          return _context.abrupt("return");
+        case 44:
           if (timeLeft > 0) {
             _timer = setTimeout(function () {
               setTimeLeft(timeLeft - 1);
@@ -140,7 +143,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           return _context.abrupt("return", function () {
             clearTimeout(timer);
           });
-        case 45:
+        case 46:
         case "end":
           return _context.stop();
       }
@@ -173,7 +176,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.submittedExamInstructions.fail",
         defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-      }), !attempt && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
+      }), !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
         variant: "outline-primary",
         onClick: function onClick() {
           return window.location.reload();

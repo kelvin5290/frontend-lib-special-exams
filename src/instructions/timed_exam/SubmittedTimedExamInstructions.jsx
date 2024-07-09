@@ -12,13 +12,13 @@ const SubmittedTimedExamInstructions = () => {
   );
   const [timeLeft, setTimeLeft] = useState(null);
   const [isPass, setIspass] = useState(false);
-  const [attempt, setAttempt]= useState(true);
+  const [hidebtn, setHidebtn]= useState(true);
   const dispatch = useDispatch();
   console.log(progress);
   console.log(exam);
 
   useEffect(()=>{
-    if (attempt !== 'object' && attempt === true){
+    if (hidebtn === true){
       setTimeLeft(5)
     }
   },[])
@@ -43,8 +43,10 @@ const SubmittedTimedExamInstructions = () => {
       }
       if (!isPass) {
        let attempt =  await fetchLatestAttempt(exam.course_id);
-       setAttempt(attempt)
-
+       if (Object.keys(attempt).length === 0){
+        setHidebtn(false)
+       }
+       console.log(attempt,hidebtn)
       }
       return;
     }
@@ -88,7 +90,7 @@ const SubmittedTimedExamInstructions = () => {
             id="exam.submittedExamInstructions.fail"
             defaultMessage="Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
           />
-          {!attempt && (
+          {!hidebtn && (
             <Button
               variant="outline-primary"
               onClick={() => window.location.reload()}
