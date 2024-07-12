@@ -39,10 +39,14 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
     _useState4 = _slicedToArray(_useState3, 2),
     isPass = _useState4[0],
     setIspass = _useState4[1];
-  var _useState5 = (0, _react.useState)(true),
+  var _useState5 = (0, _react.useState)(0),
     _useState6 = _slicedToArray(_useState5, 2),
-    hidebtn = _useState6[0],
-    setHidebtn = _useState6[1];
+    score = _useState6[0],
+    setScore = _useState6[1];
+  var _useState7 = (0, _react.useState)(true),
+    _useState8 = _slicedToArray(_useState7, 2),
+    hidebtn = _useState8[0],
+    setHidebtn = _useState8[1];
   var dispatch = (0, _reactRedux.useDispatch)();
   console.log(progress);
   console.log(exam);
@@ -58,13 +62,13 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           if (!(timeLeft === 0)) {
-            _context.next = 44;
+            _context.next = 45;
             break;
           }
           // Countdown has reached zero, do something
           console.log("Countdown finished!");
           if (!(progress !== null && progress !== void 0 && progress.section_scores)) {
-            _context.next = 37;
+            _context.next = 38;
             break;
           }
           _iterator = _createForOfIteratorHelper(progress === null || progress === void 0 ? void 0 : progress.section_scores);
@@ -72,7 +76,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           _iterator.s();
         case 6:
           if ((_step = _iterator.n()).done) {
-            _context.next = 29;
+            _context.next = 30;
             break;
           }
           section = _step.value;
@@ -81,61 +85,62 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           _iterator2.s();
         case 11:
           if ((_step2 = _iterator2.n()).done) {
-            _context.next = 19;
+            _context.next = 20;
             break;
           }
           subsection = _step2.value;
           if (!(subsection.block_key === exam.content_id)) {
-            _context.next = 17;
+            _context.next = 18;
             break;
           }
           setIspass(subsection.percent_graded >= (progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.Pass));
+          setScore(subsection.percent_graded * 100);
           console.log("isPass", isPass, progress === null || progress === void 0 || (_progress$grading_pol2 = progress.grading_policy) === null || _progress$grading_pol2 === void 0 || (_progress$grading_pol2 = _progress$grading_pol2.grade_range) === null || _progress$grading_pol2 === void 0 ? void 0 : _progress$grading_pol2.Pass);
-          return _context.abrupt("break", 19);
-        case 17:
+          return _context.abrupt("break", 20);
+        case 18:
           _context.next = 11;
           break;
-        case 19:
-          _context.next = 24;
+        case 20:
+          _context.next = 25;
           break;
-        case 21:
-          _context.prev = 21;
+        case 22:
+          _context.prev = 22;
           _context.t0 = _context["catch"](9);
           _iterator2.e(_context.t0);
-        case 24:
-          _context.prev = 24;
+        case 25:
+          _context.prev = 25;
           _iterator2.f();
-          return _context.finish(24);
-        case 27:
+          return _context.finish(25);
+        case 28:
           _context.next = 6;
           break;
-        case 29:
-          _context.next = 34;
+        case 30:
+          _context.next = 35;
           break;
-        case 31:
-          _context.prev = 31;
+        case 32:
+          _context.prev = 32;
           _context.t1 = _context["catch"](4);
           _iterator.e(_context.t1);
-        case 34:
-          _context.prev = 34;
+        case 35:
+          _context.prev = 35;
           _iterator.f();
-          return _context.finish(34);
-        case 37:
+          return _context.finish(35);
+        case 38:
           if (isPass) {
-            _context.next = 43;
+            _context.next = 44;
             break;
           }
-          _context.next = 40;
+          _context.next = 41;
           return (0, _api.fetchExamAttemptsData)(exam.course_id, exam.content_id);
-        case 40:
+        case 41:
           attempt = _context.sent;
           if (Object.keys(attempt.exam.attempt).length === 0) {
             setHidebtn(false);
           }
           console.log(attempt, hidebtn);
-        case 43:
-          return _context.abrupt("return");
         case 44:
+          return _context.abrupt("return");
+        case 45:
           if (timeLeft > 0) {
             _timer = setTimeout(function () {
               setTimeLeft(timeLeft - 1);
@@ -144,11 +149,11 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
           return _context.abrupt("return", function () {
             clearTimeout(timer);
           });
-        case 46:
+        case 47:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[4, 31, 34, 37], [9, 21, 24, 27]]);
+    }, _callee, null, [[4, 32, 35, 38], [9, 22, 25, 28]]);
   })), [timeLeft]);
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h4", {
@@ -170,12 +175,16 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
             "aria-valuemax": "100"
           })
         })]
-      }) : isPass ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.submittedExamInstructions.pass",
-        defaultMessage: "Congratulations! You've passed the exam."
-      }) : /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.submittedExamInstructions.fail",
-        defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
+      }) : isPass ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          id: "exam.submittedExamInstructions.pass",
+          defaultMessage: "Congratulations! You've passed the exam."
+        }), " `($", score, "/ 100)`"]
+      }) : /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          id: "exam.submittedExamInstructions.fail",
+          defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
+        }), " `($", score, "/ 100)`"]
       })
     }), !isPass && !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       variant: "outline-primary",
