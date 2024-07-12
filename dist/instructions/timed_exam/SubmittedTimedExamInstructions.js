@@ -179,12 +179,12 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.pass",
           defaultMessage: "Congratulations! You've passed the exam."
-        }), " `($", score, "/ 100)`"]
+        }), " ", "(".concat(score, "/ 100)")]
       }) : /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.fail",
           defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-        }), " `($", score, "/ 100)`"]
+        }), " ", "(".concat(score, "/ 100)")]
       })
     }), !isPass && !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       variant: "outline-primary",

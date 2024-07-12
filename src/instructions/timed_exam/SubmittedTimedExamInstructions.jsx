@@ -88,14 +88,14 @@ const SubmittedTimedExamInstructions = () => {
         <FormattedMessage
           id="exam.submittedExamInstructions.pass"
           defaultMessage="Congratulations! You've passed the exam."
-        /> `(${score}/ 100)`
+        /> {`(${score}/ 100)`}
         </>
       ) : (
         <>
           <FormattedMessage
             id="exam.submittedExamInstructions.fail"
             defaultMessage="Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-          /> `(${score}/ 100)`
+          /> {`(${score}/ 100)`}
         </>
 
       )}
