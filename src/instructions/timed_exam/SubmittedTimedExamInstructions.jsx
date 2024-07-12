@@ -12,6 +12,7 @@ const SubmittedTimedExamInstructions = () => {
   );
   const [timeLeft, setTimeLeft] = useState(null);
   const [isPass, setIspass] = useState(false);
+  const [score, setScore] = useState(0);
   const [hidebtn, setHidebtn]= useState(true);
   const dispatch = useDispatch();
   console.log(progress);
@@ -36,6 +37,7 @@ const SubmittedTimedExamInstructions = () => {
                 subsection.percent_graded >=
                   (progress?.grading_policy?.grade_range?.Pass)
               );
+              setScore(subsection.percent_graded * 100)
               console.log("isPass", isPass,progress?.grading_policy?.grade_range?.Pass);
               break;
             }
@@ -82,17 +84,19 @@ const SubmittedTimedExamInstructions = () => {
           </div>
         </>
       ) : isPass ? (
+        <>
         <FormattedMessage
           id="exam.submittedExamInstructions.pass"
           defaultMessage="Congratulations! You've passed the exam."
-        />
+        /> `(${score}/ 100)`
+        </>
       ) : (
-      
+        <>
           <FormattedMessage
             id="exam.submittedExamInstructions.fail"
             defaultMessage="Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-          />
-
+          /> `(${score}/ 100)`
+        </>
 
       )}
     </h4>
