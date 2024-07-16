@@ -161,7 +161,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.title",
-          defaultMessage: "Your final score is calculating, please wait for your result and do not close this page."
+          defaultMessage: "Your final score is being calculated, please wait for your results and do not close this page."
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           "class": "progress",
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -179,12 +179,24 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.pass",
           defaultMessage: "Congratulations! You've passed the exam."
-        }), " ", "(".concat(score, "/ 100)")]
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("br", {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          id: "exam.submittedExamInstructions.score",
+          defaultMessage: "Score: {score}",
+          values: {
+            score: "(".concat(score, "/ 100)")
+          }
+        })]
       }) : /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.fail",
-          defaultMessage: "Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-        }), " ", "(".concat(score, "/ 100)")]
+          defaultMessage: "Sorry, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("br", {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          id: "exam.submittedExamInstructions.score",
+          defaultMessage: "Score: {score}",
+          values: {
+            score: "(".concat(score, "/ 100)")
+          }
+        })]
       })
     }), !isPass && !hidebtn && /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       variant: "outline-primary",

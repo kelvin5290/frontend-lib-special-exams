@@ -70,7 +70,7 @@ const SubmittedTimedExamInstructions = () => {
         <>
           <FormattedMessage
             id="exam.submittedExamInstructions.title"
-            defaultMessage="Your final score is calculating, please wait for your result and do not close this page."
+            defaultMessage="Your final score is being calculated, please wait for your results and do not close this page."
           />
           <div class="progress">
             <div
@@ -88,14 +88,26 @@ const SubmittedTimedExamInstructions = () => {
         <FormattedMessage
           id="exam.submittedExamInstructions.pass"
           defaultMessage="Congratulations! You've passed the exam."
-        /> {`(${score}/ 100)`}
+        />  
+        <br/>
+        <FormattedMessage
+          id="exam.submittedExamInstructions.score"
+          defaultMessage="Score: {score}"
+          values={{score: `(${score}/ 100)`}}
+        />
         </>
       ) : (
         <>
           <FormattedMessage
             id="exam.submittedExamInstructions.fail"
-            defaultMessage="Unfortunately, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
-          /> {`(${score}/ 100)`}
+            defaultMessage="Sorry, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
+          />
+          <br/>
+          <FormattedMessage
+          id="exam.submittedExamInstructions.score"
+          defaultMessage="Score: {score}"
+          values={{score: `(${score}/ 100)`}}
+        />
         </>
 
       )}
