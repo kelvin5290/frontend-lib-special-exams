@@ -26,7 +26,7 @@ const StartTimedExamInstructions = () => {
         <strong>
           <FormattedMessage
             id="exam.startExamInstructions.text2"
-            defaultMessage="To pass this exam, you must complete the problems in the time allowed. "
+            defaultMessage="To pass this exam, you must complete the questions in the time allowed. "
           />
         </strong>
         <FormattedMessage
