@@ -23,31 +23,38 @@ var ExamAPIError = function ExamAPIError(_ref) {
     }),
     apiErrorMsg = _useSelector.apiErrorMsg;
   var shouldShowApiErrorMsg = !!apiErrorMsg && !apiErrorMsg.includes('<');
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_paragon.Alert, {
-    variant: "danger",
-    "data-testid": "exam-api-error-component",
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Icon, {
-      src: _icons.Info,
-      className: "alert-icon"
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Alert.Heading, {
-      "data-testid": "error-details",
-      children: shouldShowApiErrorMsg ? apiErrorMsg : intl.formatMessage(_messages["default"].apiErrorDefault)
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
-      children: SITE_NAME && SUPPORT_URL ? /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.apiError.supportText.withLink",
-        defaultMessage: 'If the issue persists, please reach out to {supportLink} for assistance, ' + 'and return to the exam once you receive further instructions.',
-        values: {
-          supportLink: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_paragon.Hyperlink, {
-            "data-testid": "support-link",
-            destination: SUPPORT_URL,
-            target: "_blank",
-            children: [SITE_NAME, " Support"]
-          })
-        }
-      }) : intl.formatMessage(_messages["default"].supportTextWithoutLink)
-    })]
-  });
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {})
+  // <Alert variant="danger" data-testid="exam-api-error-component">
+  //   <Icon src={Info} className="alert-icon" />
+  //   <Alert.Heading data-testid="error-details">
+  //     {shouldShowApiErrorMsg ? apiErrorMsg : intl.formatMessage(messages.apiErrorDefault)}
+  //   </Alert.Heading>
+  //   <p>
+  //     {SITE_NAME && SUPPORT_URL ? (
+  //       <FormattedMessage
+  //         id="exam.apiError.supportText.withLink"
+  //         defaultMessage={
+  //           'If the issue persists, please reach out to {supportLink} for assistance, '
+  //           + 'and return to the exam once you receive further instructions.'
+  //         }
+  //         values={{
+  //           supportLink: (
+  //             <Hyperlink
+  //               data-testid="support-link"
+  //               destination={SUPPORT_URL}
+  //               target="_blank"
+  //             >
+  //               {SITE_NAME} Support
+  //             </Hyperlink>
+  //           ),
+  //         }}
+  //       />
+  //     ) : intl.formatMessage(messages.supportTextWithoutLink)}
+  //   </p>
+  // </Alert>
+  ;
 };
+
 ExamAPIError.propTypes = {
   intl: _i18n.intlShape.isRequired
 };
