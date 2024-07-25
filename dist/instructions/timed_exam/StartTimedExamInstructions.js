@@ -24,7 +24,7 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
       "data-testid": "exam-instructions-title",
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.title",
-        defaultMessage: "Subsection is a Timed Exam ({examDuration})",
+        defaultMessage: "Exam",
         values: {
           examDuration: examDuration
         }
@@ -32,18 +32,15 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
     }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.text1",
-        defaultMessage: "This exam has a time limit associated with it. "
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("strong", {
-        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-          id: "exam.startExamInstructions.text2",
-          defaultMessage: "To pass this exam, you must complete the questions in the time allowed. "
-        })
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
-        id: "exam.startExamInstructions.text3",
-        defaultMessage: 'After you select "I am ready to start this timed exam", ' + 'you will have {examDuration} to complete and submit the exam.',
+        defaultMessage: "This is an exam with a {examDuration} time limit. ",
         values: {
           examDuration: examDuration
         }
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("strong", {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+          id: "exam.startExamInstructions.text2",
+          defaultMessage: "Please select \"Start\", after completing all test questions, click \"End Exam\" and wait for the results."
+        })
       })]
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       "data-testid": "start-exam-button",
