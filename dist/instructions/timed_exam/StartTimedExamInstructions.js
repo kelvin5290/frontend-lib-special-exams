@@ -50,7 +50,7 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
       },
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.startExamButtonText",
-        defaultMessage: "I am ready to start this timed exam."
+        defaultMessage: "Start"
       })
     })]
   });

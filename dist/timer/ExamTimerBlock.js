@@ -110,7 +110,7 @@ var ExamTimerBlock = (0, _i18n.injectIntl)(function (_ref) {
             onClick: handleEndExamClick,
             children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
               id: "exam.examTimer.endExamBtn",
-              defaultMessage: "End My Exam"
+              defaultMessage: "End Exam"
             })
           })
         })]

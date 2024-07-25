@@ -44,7 +44,7 @@ const StartTimedExamInstructions = () => {
       >
         <FormattedMessage
           id="exam.startExamInstructions.startExamButtonText"
-          defaultMessage="I am ready to start this timed exam."
+          defaultMessage="Start"
         />
       </Button>
     </>
