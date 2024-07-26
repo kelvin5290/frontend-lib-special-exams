@@ -39,7 +39,7 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)("strong", {
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.startExamInstructions.text2",
-          defaultMessage: "Please select \"Start\", after completing all test questions, click \"End Exam\" and wait for the results."
+          defaultMessage: "Please select \"Start\", after completing all questions, click \"End Exam\" and wait for the results."
         })
       })]
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {

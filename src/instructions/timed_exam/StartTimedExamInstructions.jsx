@@ -27,7 +27,7 @@ const StartTimedExamInstructions = () => {
         <strong>
           <FormattedMessage
             id="exam.startExamInstructions.text2"
-            defaultMessage='Please select "Start", after completing all test questions, click "End Exam" and wait for the results.'
+            defaultMessage='Please select "Start", after completing all questions, click "End Exam" and wait for the results.'
           />
         </strong>
         {/* <FormattedMessage
