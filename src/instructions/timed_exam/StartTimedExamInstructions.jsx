@@ -21,7 +21,7 @@ const StartTimedExamInstructions = () => {
       <p>
         <FormattedMessage
           id="exam.startExamInstructions.text1"
-          defaultMessage="This is an exam with a {examDuration} time limit. "
+          defaultMessage="This is an exam with a 30-minute time limit. "
           values={{ examDuration }}
         />
         <strong>

@@ -32,7 +32,7 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
     }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.text1",
-        defaultMessage: "This is an exam with a {examDuration} time limit. ",
+        defaultMessage: "This is an exam with a 30-minute time limit. ",
         values: {
           examDuration: examDuration
         }
