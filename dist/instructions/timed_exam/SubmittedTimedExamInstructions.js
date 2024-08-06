@@ -189,7 +189,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       }) : /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.fail",
-          defaultMessage: "Sorry, you did not pass the exam. Please note that retaking the exam may be necessary based on your organization policy."
+          defaultMessage: "Sorry, you did not pass the exam. Please note that retaking the exam is necessary based on your organization policy."
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("br", {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.score",
           defaultMessage: "Score: {score}",
