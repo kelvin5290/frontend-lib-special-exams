@@ -53,7 +53,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   (0, _react.useEffect)(function () {
     if (hidebtn === true) {
       setTimeLeft(7);
-      if (!progress) dispatch((0, _data.getExamProgress)());
+      if (!progress || Object.key(progress).length == 0) dispatch((0, _data.getExamProgress)());
     }
   }, []);
   (0, _react.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
