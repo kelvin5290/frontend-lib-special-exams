@@ -21,7 +21,7 @@ const SubmittedTimedExamInstructions = () => {
   useEffect(()=>{
     if (hidebtn === true){
       setTimeLeft(7)
-      if (!progress|| Object.key(progress).length==0)
+      if (!progress|| Object.keys(progress).length==0)
         dispatch(getExamProgress());
     }
   },[])
