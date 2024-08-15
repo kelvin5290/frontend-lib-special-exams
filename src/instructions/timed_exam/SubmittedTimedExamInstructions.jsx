@@ -21,7 +21,8 @@ const SubmittedTimedExamInstructions = () => {
   useEffect(()=>{
     if (hidebtn === true){
       setTimeLeft(7)
-      dispatch(getExamProgress());
+      if (!progress)
+        dispatch(getExamProgress());
     }
   },[])
 
@@ -33,11 +34,15 @@ const SubmittedTimedExamInstructions = () => {
         for (const section of progress?.section_scores) {
           for (const subsection of section.subsections) {
             if (subsection.block_key === exam.content_id) {
+              let score = 0
+              subsection.problem_scores.forEach((i)=>{score+=i.earned})
+              let final = score/subsection.num_points_possible
+              setScore(Math.floor(final* 100))
               setIspass(
-                subsection.percent_graded >=
+                final >=
                   (progress?.grading_policy?.grade_range?.Pass)
               );
-              setScore(subsection.percent_graded * 100)
+
               console.log("isPass", isPass,progress?.grading_policy?.grade_range?.Pass);
               break;
             }
@@ -70,7 +75,7 @@ const SubmittedTimedExamInstructions = () => {
         <>
           <FormattedMessage
             id="exam.submittedExamInstructions.title"
-            defaultMessage="Your final score is being calculated, please wait for your results and do not close this page."
+            defaultMessage="Your final score is being calculated.  Please wait for your result and do not close this page."
           />
           <div class="progress">
             <div
@@ -87,7 +92,7 @@ const SubmittedTimedExamInstructions = () => {
         <>
         <FormattedMessage
           id="exam.submittedExamInstructions.pass"
-          defaultMessage="Congratulations! You've passed the exam."
+          defaultMessage="Congratulations! You have passed the assessment."
         />  
         <br/>
         <FormattedMessage
@@ -121,7 +126,7 @@ const SubmittedTimedExamInstructions = () => {
       >
         <FormattedMessage
           id="exam.submittedExamInstructions.retake"
-          defaultMessage="Retake Exam"
+          defaultMessage="Retake"
         />
       </Button>
     }

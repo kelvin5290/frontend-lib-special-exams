@@ -24,7 +24,7 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
       "data-testid": "exam-instructions-title",
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.title",
-        defaultMessage: "Exam",
+        defaultMessage: "Graded Assessment",
         values: {
           examDuration: examDuration
         }
@@ -32,16 +32,21 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
     }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.text1",
-        defaultMessage: "This is an exam with a 30-minute time limit. ",
+        defaultMessage: "This is a graded assessment with a 30-minute time limit. ",
         values: {
           examDuration: examDuration
         }
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)("strong", {
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.startExamInstructions.text2",
-          defaultMessage: "Please select \"Start\", after completing all questions, click \"End Exam\" and wait for the results."
+          defaultMessage: "Please click \"Start\" to start the assessment. When finished, please click \"End\" to submit your answers and wait for the result."
         })
       })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
+        id: "exam.startExamInstructions.text3",
+        defaultMessage: "Note: Please do not leave the platform during the assessment, or an attempt will be used and a retake of the assessment will be required."
+      })
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_paragon.Button, {
       "data-testid": "start-exam-button",
       variant: "outline-primary",

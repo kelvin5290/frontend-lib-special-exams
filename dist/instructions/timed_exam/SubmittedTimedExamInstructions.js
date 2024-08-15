@@ -53,107 +53,130 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
   (0, _react.useEffect)(function () {
     if (hidebtn === true) {
       setTimeLeft(7);
-      dispatch((0, _data.getExamProgress)());
+      if (!progress) dispatch((0, _data.getExamProgress)());
     }
   }, []);
   (0, _react.useEffect)( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var _iterator, _step, section, _iterator2, _step2, subsection, _progress$grading_pol, _progress$grading_pol2, attempt, _timer;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
+    var _iterator, _step, section, _iterator2, _step2, _loop, attempt, _timer;
+    return _regeneratorRuntime().wrap(function _callee$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
         case 0:
           if (!(timeLeft === 0)) {
-            _context.next = 45;
+            _context2.next = 43;
             break;
           }
           // Countdown has reached zero, do something
           console.log("Countdown finished!");
           if (!(progress !== null && progress !== void 0 && progress.section_scores)) {
-            _context.next = 38;
+            _context2.next = 36;
             break;
           }
           _iterator = _createForOfIteratorHelper(progress === null || progress === void 0 ? void 0 : progress.section_scores);
-          _context.prev = 4;
+          _context2.prev = 4;
           _iterator.s();
         case 6:
           if ((_step = _iterator.n()).done) {
-            _context.next = 30;
+            _context2.next = 28;
             break;
           }
           section = _step.value;
           _iterator2 = _createForOfIteratorHelper(section.subsections);
-          _context.prev = 9;
+          _context2.prev = 9;
+          _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
+            var subsection, _progress$grading_pol, _progress$grading_pol2, _score, _final;
+            return _regeneratorRuntime().wrap(function _loop$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  subsection = _step2.value;
+                  if (!(subsection.block_key === exam.content_id)) {
+                    _context.next = 9;
+                    break;
+                  }
+                  _score = 0;
+                  subsection.problem_scores.forEach(function (i) {
+                    _score += i.earned;
+                  });
+                  _final = _score / subsection.num_points_possible;
+                  setScore(Math.floor(_final * 100));
+                  setIspass(_final >= (progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.Pass));
+                  console.log("isPass", isPass, progress === null || progress === void 0 || (_progress$grading_pol2 = progress.grading_policy) === null || _progress$grading_pol2 === void 0 || (_progress$grading_pol2 = _progress$grading_pol2.grade_range) === null || _progress$grading_pol2 === void 0 ? void 0 : _progress$grading_pol2.Pass);
+                  return _context.abrupt("return", 1);
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }, _loop);
+          });
           _iterator2.s();
-        case 11:
+        case 12:
           if ((_step2 = _iterator2.n()).done) {
-            _context.next = 20;
+            _context2.next = 18;
             break;
           }
-          subsection = _step2.value;
-          if (!(subsection.block_key === exam.content_id)) {
-            _context.next = 18;
+          return _context2.delegateYield(_loop(), "t0", 14);
+        case 14:
+          if (!_context2.t0) {
+            _context2.next = 16;
             break;
           }
-          setIspass(subsection.percent_graded >= (progress === null || progress === void 0 || (_progress$grading_pol = progress.grading_policy) === null || _progress$grading_pol === void 0 || (_progress$grading_pol = _progress$grading_pol.grade_range) === null || _progress$grading_pol === void 0 ? void 0 : _progress$grading_pol.Pass));
-          setScore(subsection.percent_graded * 100);
-          console.log("isPass", isPass, progress === null || progress === void 0 || (_progress$grading_pol2 = progress.grading_policy) === null || _progress$grading_pol2 === void 0 || (_progress$grading_pol2 = _progress$grading_pol2.grade_range) === null || _progress$grading_pol2 === void 0 ? void 0 : _progress$grading_pol2.Pass);
-          return _context.abrupt("break", 20);
+          return _context2.abrupt("break", 18);
+        case 16:
+          _context2.next = 12;
+          break;
         case 18:
-          _context.next = 11;
+          _context2.next = 23;
           break;
         case 20:
-          _context.next = 25;
-          break;
-        case 22:
-          _context.prev = 22;
-          _context.t0 = _context["catch"](9);
-          _iterator2.e(_context.t0);
-        case 25:
-          _context.prev = 25;
+          _context2.prev = 20;
+          _context2.t1 = _context2["catch"](9);
+          _iterator2.e(_context2.t1);
+        case 23:
+          _context2.prev = 23;
           _iterator2.f();
-          return _context.finish(25);
+          return _context2.finish(23);
+        case 26:
+          _context2.next = 6;
+          break;
         case 28:
-          _context.next = 6;
+          _context2.next = 33;
           break;
         case 30:
-          _context.next = 35;
-          break;
-        case 32:
-          _context.prev = 32;
-          _context.t1 = _context["catch"](4);
-          _iterator.e(_context.t1);
-        case 35:
-          _context.prev = 35;
+          _context2.prev = 30;
+          _context2.t2 = _context2["catch"](4);
+          _iterator.e(_context2.t2);
+        case 33:
+          _context2.prev = 33;
           _iterator.f();
-          return _context.finish(35);
-        case 38:
+          return _context2.finish(33);
+        case 36:
           if (isPass) {
-            _context.next = 44;
+            _context2.next = 42;
             break;
           }
-          _context.next = 41;
+          _context2.next = 39;
           return (0, _api.fetchExamAttemptsData)(exam.course_id, exam.content_id);
-        case 41:
-          attempt = _context.sent;
+        case 39:
+          attempt = _context2.sent;
           if (Object.keys(attempt.exam.attempt).length === 0) {
             setHidebtn(false);
           }
           console.log(attempt, hidebtn);
-        case 44:
-          return _context.abrupt("return");
-        case 45:
+        case 42:
+          return _context2.abrupt("return");
+        case 43:
           if (timeLeft > 0) {
             _timer = setTimeout(function () {
               setTimeLeft(timeLeft - 1);
             }, 1000);
           }
-          return _context.abrupt("return", function () {
+          return _context2.abrupt("return", function () {
             clearTimeout(timer);
           });
-        case 47:
+        case 45:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
-    }, _callee, null, [[4, 32, 35, 38], [9, 22, 25, 28]]);
+    }, _callee, null, [[4, 30, 33, 36], [9, 20, 23, 26]]);
   })), [timeLeft]);
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h4", {
@@ -161,7 +184,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.title",
-          defaultMessage: "Your final score is being calculated, please wait for your results and do not close this page."
+          defaultMessage: "Your final score is being calculated.  Please wait for your result and do not close this page."
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           "class": "progress",
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -178,7 +201,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       }) : isPass ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.pass",
-          defaultMessage: "Congratulations! You've passed the exam."
+          defaultMessage: "Congratulations! You have passed the assessment."
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("br", {}), /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.score",
           defaultMessage: "Score: {score}",
@@ -207,7 +230,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       "data-testid": "continue-exam-button",
       children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.submittedExamInstructions.retake",
-        defaultMessage: "Retake Exam"
+        defaultMessage: "Retake"
       })
     })]
   });

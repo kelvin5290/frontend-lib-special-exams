@@ -14,29 +14,29 @@ const StartTimedExamInstructions = () => {
       <div className="h3" data-testid="exam-instructions-title">
         <FormattedMessage
           id="exam.startExamInstructions.title"
-          defaultMessage="Exam"
+          defaultMessage="Graded Assessment"
           values={{ examDuration }}
         />
       </div>
       <p>
         <FormattedMessage
           id="exam.startExamInstructions.text1"
-          defaultMessage="This is an exam with a 30-minute time limit. "
+          defaultMessage="This is a graded assessment with a 30-minute time limit. "
           values={{ examDuration }}
         />
         <strong>
           <FormattedMessage
             id="exam.startExamInstructions.text2"
-            defaultMessage='Please select "Start", after completing all questions, click "End Exam" and wait for the results.'
+            defaultMessage='Please click "Start" to start the assessment. When finished, please click "End" to submit your answers and wait for the result.'
           />
         </strong>
-        {/* <FormattedMessage
-          id="exam.startExamInstructions.text3"
-          defaultMessage={'After you select "I am ready to start this timed exam", '
-          + 'you will have {examDuration} to complete and submit the exam.'}
-          values={{ examDuration }}
-        /> */}
       </p>
+      <p>
+      <FormattedMessage
+          id="exam.startExamInstructions.text3"
+          defaultMessage='Note: Please do not leave the platform during the assessment, or an attempt will be used and a retake of the assessment will be required.'
+        />
+         </p>
       <Button
         data-testid="start-exam-button"
         variant="outline-primary"
