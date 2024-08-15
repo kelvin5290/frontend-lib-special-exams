@@ -105,7 +105,7 @@ const SubmittedTimedExamInstructions = () => {
         <>
           <FormattedMessage
             id="exam.submittedExamInstructions.fail"
-            defaultMessage="Sorry, you did not pass the exam. Please note that retaking the exam is necessary based on your organization policy."
+            defaultMessage='Sorry, you did not pass the assessment.  Please click "Retake" to retake the assessment.'
           />
           <br/>
           <FormattedMessage
