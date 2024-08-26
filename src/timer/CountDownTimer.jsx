@@ -33,7 +33,7 @@ const CountDownTimer = injectIntl((props) => {
     >
       <FormattedMessage
         id="exam.examTimer.text"
-        defaultMessage="Assessmant remaining time: "
+        defaultMessage="Assessment remaining time: "
       />
       <span className="sr-only timer-announce" aria-live="assertive">
         {generateAccessbilityString()}

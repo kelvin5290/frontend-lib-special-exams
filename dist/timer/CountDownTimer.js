@@ -49,7 +49,7 @@ var CountDownTimer = (0, _i18n.injectIntl)(function (props) {
     },
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
       id: "exam.examTimer.text",
-      defaultMessage: "Assessmant remaining time: "
+      defaultMessage: "Assessment remaining time: "
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
       className: "sr-only timer-announce",
       "aria-live": "assertive",
