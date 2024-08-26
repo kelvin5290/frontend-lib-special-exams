@@ -118,7 +118,7 @@ const ExamTimerBlock = injectIntl(({ intl }) => {
               <Button data-testid="end-button" className="mr-3" variant="outline-primary" onClick={handleEndExamClick}>
                 <FormattedMessage
                   id="exam.examTimer.endExamBtn"
-                  defaultMessage="End Exam"
+                  defaultMessage="End"
                 />
               </Button>
             )}
