@@ -184,7 +184,7 @@ var SubmittedTimedExamInstructions = function SubmittedTimedExamInstructions() {
       children: timeLeft > 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
           id: "exam.submittedExamInstructions.title",
-          defaultMessage: "Your final score is being calculated.  Please wait for your result and do not close this page."
+          defaultMessage: "Your final score is being calculated.  Please wait for your results and do not close this page."
         }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
           "class": "progress",
           children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {

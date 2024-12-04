@@ -75,7 +75,7 @@ const SubmittedTimedExamInstructions = () => {
         <>
           <FormattedMessage
             id="exam.submittedExamInstructions.title"
-            defaultMessage="Your final score is being calculated.  Please wait for your result and do not close this page."
+            defaultMessage="Your final score is being calculated.  Please wait for your results and do not close this page."
           />
           <div class="progress">
             <div
