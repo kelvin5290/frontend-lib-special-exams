@@ -8,6 +8,7 @@ const StartTimedExamInstructions = () => {
   const { exam } = useSelector(state => state.specialExams);
   const dispatch = useDispatch();
   const examDuration = exam.total_time;
+  const examDurationInMinutes = exam.time_limit_mins;
 
   return (
     <>
@@ -21,8 +22,8 @@ const StartTimedExamInstructions = () => {
       <p>
         <FormattedMessage
           id="exam.startExamInstructions.text1"
-          defaultMessage="This is a graded assessment with a 30-minute time limit. "
-          values={{ examDuration }}
+          defaultMessage="This is a graded assessment with a {examDurationInMinutes}-minute time limit. "
+          values={{ examDurationInMinutes }}
         />
         <strong>
           <FormattedMessage

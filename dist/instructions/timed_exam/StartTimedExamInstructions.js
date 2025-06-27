@@ -18,6 +18,7 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
     exam = _useSelector.exam;
   var dispatch = (0, _reactRedux.useDispatch)();
   var examDuration = exam.total_time;
+  var examDurationInMinutes = exam.time_limit_mins;
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       className: "h3",
@@ -32,9 +33,9 @@ var StartTimedExamInstructions = function StartTimedExamInstructions() {
     }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("p", {
       children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
         id: "exam.startExamInstructions.text1",
-        defaultMessage: "This is a graded assessment with a 30-minute time limit. ",
+        defaultMessage: "This is a graded assessment with a {examDurationInMinutes}-minute time limit. ",
         values: {
-          examDuration: examDuration
+          examDurationInMinutes: examDurationInMinutes
         }
       }), /*#__PURE__*/(0, _jsxRuntime.jsx)("strong", {
         children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_i18n.FormattedMessage, {
