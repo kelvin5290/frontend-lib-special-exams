@@ -61,7 +61,7 @@ const Instructions = ({ children }) => {
     case attemptReadyToResume:
       return <EntranceExamInstructions examType={examType} skipProctoredExam={toggleSkipProctoredExam} />;
     case attemptStatus === ExamStatus.CREATED:
-      return renderEmptyAttemptInstructions();
+      return <ReadyToStartProctoredExamInstructions />;
       // return <DownloadSoftwareProctoredExamInstructions skipProctoredExam={toggleSkipProctoredExam} />;
     case attemptStatus === ExamStatus.DOWNLOAD_SOFTWARE_CLICKED:
       return renderEmptyAttemptInstructions();

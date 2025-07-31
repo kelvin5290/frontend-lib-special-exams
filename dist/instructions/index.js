@@ -81,7 +81,7 @@ var Instructions = function Instructions(_ref) {
         skipProctoredExam: toggleSkipProctoredExam
       });
     case attemptStatus === _constants.ExamStatus.CREATED:
-      return renderEmptyAttemptInstructions();
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_proctored_exam.ReadyToStartProctoredExamInstructions, {});
     // return <DownloadSoftwareProctoredExamInstructions skipProctoredExam={toggleSkipProctoredExam} />;
     case attemptStatus === _constants.ExamStatus.DOWNLOAD_SOFTWARE_CLICKED:
       return renderEmptyAttemptInstructions();
